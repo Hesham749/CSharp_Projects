@@ -47,17 +47,17 @@
             this.rbTakeOut = new System.Windows.Forms.RadioButton();
             this.rbEatIn = new System.Windows.Forms.RadioButton();
             this.gbSummary = new System.Windows.Forms.GroupBox();
+            this.lPriceValue = new System.Windows.Forms.Label();
+            this.lPrice = new System.Windows.Forms.Label();
+            this.lPlaceValue = new System.Windows.Forms.Label();
+            this.lPlace = new System.Windows.Forms.Label();
+            this.lCrustTypeValue = new System.Windows.Forms.Label();
+            this.lCrustType = new System.Windows.Forms.Label();
+            this.lToppingsValue = new System.Windows.Forms.Label();
+            this.lToppings = new System.Windows.Forms.Label();
             this.lSizeValue = new System.Windows.Forms.Label();
             this.lSize = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lToppings = new System.Windows.Forms.Label();
-            this.lToppingsValue = new System.Windows.Forms.Label();
-            this.lCrustTypeValue = new System.Windows.Forms.Label();
-            this.lCrustType = new System.Windows.Forms.Label();
-            this.lPlaceValue = new System.Windows.Forms.Label();
-            this.lPlace = new System.Windows.Forms.Label();
-            this.lPriceValue = new System.Windows.Forms.Label();
-            this.lPrice = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gbSize.SuspendLayout();
@@ -89,6 +89,7 @@
             this.gbSize.Size = new System.Drawing.Size(185, 154);
             this.gbSize.TabIndex = 1;
             this.gbSize.TabStop = false;
+            this.gbSize.Tag = "20";
             this.gbSize.Text = "Size";
             // 
             // rbLarge
@@ -99,6 +100,7 @@
             this.rbLarge.Size = new System.Drawing.Size(73, 23);
             this.rbLarge.TabIndex = 2;
             this.rbLarge.TabStop = true;
+            this.rbLarge.Tag = "40";
             this.rbLarge.Text = "Large";
             this.rbLarge.UseVisualStyleBackColor = true;
             this.rbLarge.CheckedChanged += new System.EventHandler(this.rbLarge_CheckedChanged);
@@ -111,6 +113,7 @@
             this.rbMedium.Size = new System.Drawing.Size(91, 23);
             this.rbMedium.TabIndex = 1;
             this.rbMedium.TabStop = true;
+            this.rbMedium.Tag = "30";
             this.rbMedium.Text = "Medium";
             this.rbMedium.UseVisualStyleBackColor = true;
             this.rbMedium.CheckedChanged += new System.EventHandler(this.rbMedium_CheckedChanged);
@@ -118,11 +121,13 @@
             // rbSmall
             // 
             this.rbSmall.AutoSize = true;
+            this.rbSmall.Checked = true;
             this.rbSmall.Location = new System.Drawing.Point(16, 38);
             this.rbSmall.Name = "rbSmall";
             this.rbSmall.Size = new System.Drawing.Size(72, 23);
             this.rbSmall.TabIndex = 0;
             this.rbSmall.TabStop = true;
+            this.rbSmall.Tag = "20";
             this.rbSmall.Text = "Small";
             this.rbSmall.UseVisualStyleBackColor = true;
             this.rbSmall.CheckedChanged += new System.EventHandler(this.rbSmall_CheckedChanged);
@@ -137,6 +142,7 @@
             this.gbCrust.Size = new System.Drawing.Size(185, 124);
             this.gbCrust.TabIndex = 3;
             this.gbCrust.TabStop = false;
+            this.gbCrust.Tag = "0";
             this.gbCrust.Text = "Crust Type";
             // 
             // rbThick
@@ -147,6 +153,7 @@
             this.rbThick.Size = new System.Drawing.Size(119, 23);
             this.rbThick.TabIndex = 1;
             this.rbThick.TabStop = true;
+            this.rbThick.Tag = "10";
             this.rbThick.Text = "Thick Crust";
             this.rbThick.UseVisualStyleBackColor = true;
             this.rbThick.CheckedChanged += new System.EventHandler(this.rbThick_CheckedChanged);
@@ -154,11 +161,13 @@
             // rbThin
             // 
             this.rbThin.AutoSize = true;
+            this.rbThin.Checked = true;
             this.rbThin.Location = new System.Drawing.Point(16, 38);
             this.rbThin.Name = "rbThin";
             this.rbThin.Size = new System.Drawing.Size(111, 23);
             this.rbThin.TabIndex = 0;
             this.rbThin.TabStop = true;
+            this.rbThin.Tag = "0";
             this.rbThin.Text = "Thin Crust";
             this.rbThin.UseVisualStyleBackColor = true;
             this.rbThin.CheckedChanged += new System.EventHandler(this.rbThin_CheckedChanged);
@@ -177,6 +186,7 @@
             this.gbToppings.Size = new System.Drawing.Size(348, 124);
             this.gbToppings.TabIndex = 4;
             this.gbToppings.TabStop = false;
+            this.gbToppings.Tag = "0";
             this.gbToppings.Text = "Toppings";
             // 
             // chkGreenPappers
@@ -272,6 +282,7 @@
             // rbEatIn
             // 
             this.rbEatIn.AutoSize = true;
+            this.rbEatIn.Checked = true;
             this.rbEatIn.Location = new System.Drawing.Point(16, 38);
             this.rbEatIn.Name = "rbEatIn";
             this.rbEatIn.Size = new System.Drawing.Size(76, 23);
@@ -299,94 +310,6 @@
             this.gbSummary.Size = new System.Drawing.Size(250, 355);
             this.gbSummary.TabIndex = 5;
             this.gbSummary.TabStop = false;
-            this.gbSummary.Enter += new System.EventHandler(this.gbSummary_Enter);
-            // 
-            // lSizeValue
-            // 
-            this.lSizeValue.AutoSize = true;
-            this.lSizeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSizeValue.Location = new System.Drawing.Point(57, 72);
-            this.lSizeValue.Name = "lSizeValue";
-            this.lSizeValue.Size = new System.Drawing.Size(0, 16);
-            this.lSizeValue.TabIndex = 2;
-            this.lSizeValue.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lSize
-            // 
-            this.lSize.AutoSize = true;
-            this.lSize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSize.Location = new System.Drawing.Point(19, 72);
-            this.lSize.Name = "lSize";
-            this.lSize.Size = new System.Drawing.Size(42, 16);
-            this.lSize.TabIndex = 1;
-            this.lSize.Text = "Size :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Order Summary";
-            // 
-            // lToppings
-            // 
-            this.lToppings.AutoSize = true;
-            this.lToppings.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lToppings.Location = new System.Drawing.Point(19, 109);
-            this.lToppings.Name = "lToppings";
-            this.lToppings.Size = new System.Drawing.Size(73, 16);
-            this.lToppings.TabIndex = 3;
-            this.lToppings.Text = "Toppings :";
-            // 
-            // lToppingsValue
-            // 
-            this.lToppingsValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lToppingsValue.Location = new System.Drawing.Point(57, 131);
-            this.lToppingsValue.Name = "lToppingsValue";
-            this.lToppingsValue.Size = new System.Drawing.Size(175, 59);
-            this.lToppingsValue.TabIndex = 4;
-            // 
-            // lCrustTypeValue
-            // 
-            this.lCrustTypeValue.AutoSize = true;
-            this.lCrustTypeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCrustTypeValue.Location = new System.Drawing.Point(111, 200);
-            this.lCrustTypeValue.Name = "lCrustTypeValue";
-            this.lCrustTypeValue.Size = new System.Drawing.Size(0, 16);
-            this.lCrustTypeValue.TabIndex = 6;
-            // 
-            // lCrustType
-            // 
-            this.lCrustType.AutoSize = true;
-            this.lCrustType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCrustType.Location = new System.Drawing.Point(19, 200);
-            this.lCrustType.Name = "lCrustType";
-            this.lCrustType.Size = new System.Drawing.Size(86, 16);
-            this.lCrustType.TabIndex = 5;
-            this.lCrustType.Text = "Crust Type :";
-            // 
-            // lPlaceValue
-            // 
-            this.lPlaceValue.AutoSize = true;
-            this.lPlaceValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPlaceValue.Location = new System.Drawing.Point(128, 242);
-            this.lPlaceValue.Name = "lPlaceValue";
-            this.lPlaceValue.Size = new System.Drawing.Size(0, 16);
-            this.lPlaceValue.TabIndex = 8;
-            // 
-            // lPlace
-            // 
-            this.lPlace.AutoSize = true;
-            this.lPlace.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPlace.Location = new System.Drawing.Point(19, 242);
-            this.lPlace.Name = "lPlace";
-            this.lPlace.Size = new System.Drawing.Size(103, 16);
-            this.lPlace.TabIndex = 7;
-            this.lPlace.Text = "Where To Eat :";
-            this.lPlace.Click += new System.EventHandler(this.label4_Click);
             // 
             // lPriceValue
             // 
@@ -409,6 +332,94 @@
             this.lPrice.TabIndex = 9;
             this.lPrice.Text = "Total Price :";
             // 
+            // lPlaceValue
+            // 
+            this.lPlaceValue.AutoSize = true;
+            this.lPlaceValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPlaceValue.Location = new System.Drawing.Point(128, 242);
+            this.lPlaceValue.Name = "lPlaceValue";
+            this.lPlaceValue.Size = new System.Drawing.Size(40, 16);
+            this.lPlaceValue.TabIndex = 8;
+            this.lPlaceValue.Text = "Eat In";
+            // 
+            // lPlace
+            // 
+            this.lPlace.AutoSize = true;
+            this.lPlace.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPlace.Location = new System.Drawing.Point(19, 242);
+            this.lPlace.Name = "lPlace";
+            this.lPlace.Size = new System.Drawing.Size(103, 16);
+            this.lPlace.TabIndex = 7;
+            this.lPlace.Text = "Where To Eat :";
+            // 
+            // lCrustTypeValue
+            // 
+            this.lCrustTypeValue.AutoSize = true;
+            this.lCrustTypeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCrustTypeValue.Location = new System.Drawing.Point(111, 200);
+            this.lCrustTypeValue.Name = "lCrustTypeValue";
+            this.lCrustTypeValue.Size = new System.Drawing.Size(66, 16);
+            this.lCrustTypeValue.TabIndex = 6;
+            this.lCrustTypeValue.Text = "Thin Crust";
+            // 
+            // lCrustType
+            // 
+            this.lCrustType.AutoSize = true;
+            this.lCrustType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCrustType.Location = new System.Drawing.Point(19, 200);
+            this.lCrustType.Name = "lCrustType";
+            this.lCrustType.Size = new System.Drawing.Size(86, 16);
+            this.lCrustType.TabIndex = 5;
+            this.lCrustType.Text = "Crust Type :";
+            // 
+            // lToppingsValue
+            // 
+            this.lToppingsValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lToppingsValue.Location = new System.Drawing.Point(57, 131);
+            this.lToppingsValue.Name = "lToppingsValue";
+            this.lToppingsValue.Size = new System.Drawing.Size(175, 59);
+            this.lToppingsValue.TabIndex = 4;
+            // 
+            // lToppings
+            // 
+            this.lToppings.AutoSize = true;
+            this.lToppings.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lToppings.Location = new System.Drawing.Point(19, 109);
+            this.lToppings.Name = "lToppings";
+            this.lToppings.Size = new System.Drawing.Size(73, 16);
+            this.lToppings.TabIndex = 3;
+            this.lToppings.Text = "Toppings :";
+            // 
+            // lSizeValue
+            // 
+            this.lSizeValue.AutoSize = true;
+            this.lSizeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSizeValue.Location = new System.Drawing.Point(57, 72);
+            this.lSizeValue.Name = "lSizeValue";
+            this.lSizeValue.Size = new System.Drawing.Size(39, 16);
+            this.lSizeValue.TabIndex = 2;
+            this.lSizeValue.Text = "Small";
+            // 
+            // lSize
+            // 
+            this.lSize.AutoSize = true;
+            this.lSize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSize.Location = new System.Drawing.Point(19, 72);
+            this.lSize.Name = "lSize";
+            this.lSize.Size = new System.Drawing.Size(42, 16);
+            this.lSize.TabIndex = 1;
+            this.lSize.Text = "Size :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Order Summary";
+            // 
             // btnOrder
             // 
             this.btnOrder.Location = new System.Drawing.Point(381, 534);
@@ -417,6 +428,7 @@
             this.btnOrder.TabIndex = 6;
             this.btnOrder.Text = "Order Pizza";
             this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnReset
             // 
