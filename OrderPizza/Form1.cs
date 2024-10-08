@@ -19,132 +19,126 @@ namespace OrderPizza
 
         private void rbSmall_CheckedChanged(object sender, EventArgs e)
         {
-            lSizeValue.Text = rbSmall.Text;
+            lblSizeValue.Text = rbSmall.Text;
             gbSize.Tag = rbSmall.Tag;
             UpdatePrice();
         }
 
         private void rbMedium_CheckedChanged(object sender, EventArgs e)
         {
-            lSizeValue.Text = rbMedium.Text;
+            lblSizeValue.Text = rbMedium.Text;
             gbSize.Tag = rbMedium.Tag;
             UpdatePrice();
         }
 
         private void rbLarge_CheckedChanged(object sender, EventArgs e)
         {
-            lSizeValue.Text = rbLarge.Text;
+            lblSizeValue.Text = rbLarge.Text;
             gbSize.Tag = rbLarge.Tag;
             UpdatePrice();
         }
 
         private void rbThin_CheckedChanged(object sender, EventArgs e)
         {
-            lCrustTypeValue.Text = rbThin.Text;
+            lblCrustTypeValue.Text = rbThin.Text;
             gbCrust.Tag = rbThin.Tag;
             UpdatePrice();
         }
 
         private void rbThick_CheckedChanged(object sender, EventArgs e)
         {
-            lCrustTypeValue.Text = rbThick.Text;
+            lblCrustTypeValue.Text = rbThick.Text;
             gbCrust.Tag = rbThick.Tag;
             UpdatePrice();
         }
 
         private void rbEatIn_CheckedChanged(object sender, EventArgs e)
         {
-            lPlaceValue.Text = rbEatIn.Text;
+            lblPlaceValue.Text = rbEatIn.Text;
         }
 
         private void rbTakeOut_CheckedChanged(object sender, EventArgs e)
         {
-            lPlaceValue.Text = rbTakeOut.Text;
+            lblPlaceValue.Text = rbTakeOut.Text;
         }
 
-        private void AddTopping(string Topping)
+        private void AddTopping(string Topping, float Price)
         {
 
-            if (lToppingsValue.Text == "No Toppings")
-                lToppingsValue.Text = Topping;
+            if (lblToppingsValue.Text == "No Toppings")
+                lblToppingsValue.Text = Topping;
             else
-                lToppingsValue.Text += " , " + Topping;
+                lblToppingsValue.Text += " , " + Topping;
 
-            gbToppings.Tag = Convert.ToUInt32(gbToppings.Tag) + 5;
+            gbToppings.Tag = Convert.ToUInt32(gbToppings.Tag) + Price;
             UpdatePrice();
         }
 
-        private void RemoveTopping(string Topping)
+        private void RemoveTopping(string Topping, float Price)
         {
-            if (lToppingsValue.Text.IndexOf(",") == -1)
-                lToppingsValue.Text = "No Toppings";
-            else if (lToppingsValue.Text.IndexOf(Topping) == 0)
-                lToppingsValue.Text = lToppingsValue.Text.Replace(Topping + " , ", "");
+            if (lblToppingsValue.Text.IndexOf(",") == -1)
+                lblToppingsValue.Text = "No Toppings";
+            else if (lblToppingsValue.Text.IndexOf(Topping) == 0)
+                lblToppingsValue.Text = lblToppingsValue.Text.Replace(Topping + " , ", "");
             else
-                lToppingsValue.Text = lToppingsValue.Text.Replace(" , " + Topping, "");
+                lblToppingsValue.Text = lblToppingsValue.Text.Replace(" , " + Topping, "");
             gbToppings.Tag = Convert.ToUInt32(gbToppings.Tag) - 5;
             UpdatePrice();
         }
 
         private void chkCheese_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkCheese.Checked && lToppingsValue.Text.IndexOf(chkCheese.Text) == -1)
-                AddTopping(chkCheese.Text);
-
+            if (chkCheese.Checked && lblToppingsValue.Text.IndexOf(chkCheese.Text) == -1)
+                AddTopping(chkCheese.Text, Convert.ToSingle(chkCheese.Tag));
             else
-                RemoveTopping(chkCheese.Text);
+                RemoveTopping(chkCheese.Text, Convert.ToSingle(chkCheese.Tag));
         }
 
         private void chkMashrooms_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkMashrooms.Checked && lToppingsValue.Text.IndexOf(chkMashrooms.Text) == -1)
-                AddTopping(chkMashrooms.Text);
-
+            if (chkMashrooms.Checked && lblToppingsValue.Text.IndexOf(chkMashrooms.Text) == -1)
+                AddTopping(chkMashrooms.Text, Convert.ToSingle(chkMashrooms.Tag));
             else
-                RemoveTopping(chkMashrooms.Text);
+                RemoveTopping(chkMashrooms.Text, Convert.ToSingle(chkMashrooms.Tag));
         }
 
         private void chkTmoato_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkTmoato.Checked && lToppingsValue.Text.IndexOf(chkTmoato.Text) == -1)
-                AddTopping(chkTmoato.Text);
-
+            if (chkTmoato.Checked && lblToppingsValue.Text.IndexOf(chkTmoato.Text) == -1)
+                AddTopping(chkTmoato.Text, Convert.ToSingle(chkTmoato.Tag));
             else
-                RemoveTopping(chkTmoato.Text);
+                RemoveTopping(chkTmoato.Text, Convert.ToSingle(chkTmoato.Tag));
         }
 
         private void chkOnion_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkOnion.Checked && lToppingsValue.Text.IndexOf(chkOnion.Text) == -1)
-                AddTopping(chkOnion.Text);
-
+            if (chkOnion.Checked && lblToppingsValue.Text.IndexOf(chkOnion.Text) == -1)
+                AddTopping(chkOnion.Text, Convert.ToSingle(chkOnion.Tag));
             else
-                RemoveTopping(chkOnion.Text);
+                RemoveTopping(chkOnion.Text, Convert.ToSingle(chkOnion.Tag));
         }
 
         private void chkOlives_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkOlives.Checked && lToppingsValue.Text.IndexOf(chkOlives.Text) == -1)
-                AddTopping(chkOlives.Text);
-
+            if (chkOlives.Checked && lblToppingsValue.Text.IndexOf(chkOlives.Text) == -1)
+                AddTopping(chkOlives.Text, Convert.ToSingle(chkOlives.Tag));
             else
-                RemoveTopping(chkOlives.Text);
+                RemoveTopping(chkOlives.Text, Convert.ToSingle(chkOlives.Tag));
         }
 
         private void chkGreenPappers_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkGreenPappers.Checked && lToppingsValue.Text.IndexOf(chkGreenPappers.Text) == -1)
-                AddTopping(chkGreenPappers.Text);
-
+            if (chkGreenPappers.Checked && lblToppingsValue.Text.IndexOf(chkGreenPappers.Text) == -1)
+                AddTopping(chkGreenPappers.Text, Convert.ToSingle(chkGreenPappers.Tag));
             else
-                RemoveTopping(chkGreenPappers.Text);
+                RemoveTopping(chkGreenPappers.Text, Convert.ToSingle(chkGreenPappers.Tag));
         }
 
         private void UpdatePrice()
         {
             int price = Convert.ToInt32(gbToppings.Tag) + Convert.ToInt32(gbSize.Tag) + Convert.ToInt32(gbCrust.Tag);
 
-            lPriceValue.Text = "$" + Convert.ToString(price);
+            lblPriceValue.Text = "$" + price.ToString();
         }
 
         private void btnOrder_Click(object sender, EventArgs e)

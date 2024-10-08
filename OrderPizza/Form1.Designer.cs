@@ -47,15 +47,15 @@
             this.rbTakeOut = new System.Windows.Forms.RadioButton();
             this.rbEatIn = new System.Windows.Forms.RadioButton();
             this.gbSummary = new System.Windows.Forms.GroupBox();
-            this.lPriceValue = new System.Windows.Forms.Label();
+            this.lblPriceValue = new System.Windows.Forms.Label();
             this.lPrice = new System.Windows.Forms.Label();
-            this.lPlaceValue = new System.Windows.Forms.Label();
+            this.lblPlaceValue = new System.Windows.Forms.Label();
             this.lPlace = new System.Windows.Forms.Label();
-            this.lCrustTypeValue = new System.Windows.Forms.Label();
+            this.lblCrustTypeValue = new System.Windows.Forms.Label();
             this.lCrustType = new System.Windows.Forms.Label();
-            this.lToppingsValue = new System.Windows.Forms.Label();
+            this.lblToppingsValue = new System.Windows.Forms.Label();
             this.lToppings = new System.Windows.Forms.Label();
-            this.lSizeValue = new System.Windows.Forms.Label();
+            this.lblSizeValue = new System.Windows.Forms.Label();
             this.lSize = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
@@ -195,6 +195,7 @@
             this.chkGreenPappers.Name = "chkGreenPappers";
             this.chkGreenPappers.Size = new System.Drawing.Size(131, 23);
             this.chkGreenPappers.TabIndex = 5;
+            this.chkGreenPappers.Tag = "5";
             this.chkGreenPappers.Text = "Green Pappers";
             this.chkGreenPappers.UseVisualStyleBackColor = true;
             this.chkGreenPappers.CheckedChanged += new System.EventHandler(this.chkGreenPappers_CheckedChanged);
@@ -206,6 +207,7 @@
             this.chkOlives.Name = "chkOlives";
             this.chkOlives.Size = new System.Drawing.Size(71, 23);
             this.chkOlives.TabIndex = 4;
+            this.chkOlives.Tag = "5";
             this.chkOlives.Text = "Olives";
             this.chkOlives.UseVisualStyleBackColor = true;
             this.chkOlives.CheckedChanged += new System.EventHandler(this.chkOlives_CheckedChanged);
@@ -217,6 +219,7 @@
             this.chkOnion.Name = "chkOnion";
             this.chkOnion.Size = new System.Drawing.Size(71, 23);
             this.chkOnion.TabIndex = 3;
+            this.chkOnion.Tag = "5";
             this.chkOnion.Text = "Onion";
             this.chkOnion.UseVisualStyleBackColor = true;
             this.chkOnion.CheckedChanged += new System.EventHandler(this.chkOnion_CheckedChanged);
@@ -228,6 +231,7 @@
             this.chkTmoato.Name = "chkTmoato";
             this.chkTmoato.Size = new System.Drawing.Size(83, 23);
             this.chkTmoato.TabIndex = 2;
+            this.chkTmoato.Tag = "5";
             this.chkTmoato.Text = "Tmoato";
             this.chkTmoato.UseVisualStyleBackColor = true;
             this.chkTmoato.CheckedChanged += new System.EventHandler(this.chkTmoato_CheckedChanged);
@@ -239,6 +243,7 @@
             this.chkMashrooms.Name = "chkMashrooms";
             this.chkMashrooms.Size = new System.Drawing.Size(109, 23);
             this.chkMashrooms.TabIndex = 1;
+            this.chkMashrooms.Tag = "5";
             this.chkMashrooms.Text = "Mashrooms";
             this.chkMashrooms.UseVisualStyleBackColor = true;
             this.chkMashrooms.CheckedChanged += new System.EventHandler(this.chkMashrooms_CheckedChanged);
@@ -250,6 +255,7 @@
             this.chkCheese.Name = "chkCheese";
             this.chkCheese.Size = new System.Drawing.Size(127, 23);
             this.chkCheese.TabIndex = 0;
+            this.chkCheese.Tag = "5";
             this.chkCheese.Text = "Extraa Cheese";
             this.chkCheese.UseVisualStyleBackColor = true;
             this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
@@ -292,15 +298,15 @@
             // 
             // gbSummary
             // 
-            this.gbSummary.Controls.Add(this.lPriceValue);
+            this.gbSummary.Controls.Add(this.lblPriceValue);
             this.gbSummary.Controls.Add(this.lPrice);
-            this.gbSummary.Controls.Add(this.lPlaceValue);
+            this.gbSummary.Controls.Add(this.lblPlaceValue);
             this.gbSummary.Controls.Add(this.lPlace);
-            this.gbSummary.Controls.Add(this.lCrustTypeValue);
+            this.gbSummary.Controls.Add(this.lblCrustTypeValue);
             this.gbSummary.Controls.Add(this.lCrustType);
-            this.gbSummary.Controls.Add(this.lToppingsValue);
+            this.gbSummary.Controls.Add(this.lblToppingsValue);
             this.gbSummary.Controls.Add(this.lToppings);
-            this.gbSummary.Controls.Add(this.lSizeValue);
+            this.gbSummary.Controls.Add(this.lblSizeValue);
             this.gbSummary.Controls.Add(this.lSize);
             this.gbSummary.Controls.Add(this.label2);
             this.gbSummary.Location = new System.Drawing.Point(880, 156);
@@ -309,16 +315,16 @@
             this.gbSummary.TabIndex = 5;
             this.gbSummary.TabStop = false;
             // 
-            // lPriceValue
+            // lblPriceValue
             // 
-            this.lPriceValue.AutoSize = true;
-            this.lPriceValue.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPriceValue.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lPriceValue.Location = new System.Drawing.Point(111, 280);
-            this.lPriceValue.Name = "lPriceValue";
-            this.lPriceValue.Size = new System.Drawing.Size(102, 56);
-            this.lPriceValue.TabIndex = 10;
-            this.lPriceValue.Text = "$20";
+            this.lblPriceValue.AutoSize = true;
+            this.lblPriceValue.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPriceValue.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblPriceValue.Location = new System.Drawing.Point(111, 280);
+            this.lblPriceValue.Name = "lblPriceValue";
+            this.lblPriceValue.Size = new System.Drawing.Size(102, 56);
+            this.lblPriceValue.TabIndex = 10;
+            this.lblPriceValue.Text = "$20";
             // 
             // lPrice
             // 
@@ -330,15 +336,15 @@
             this.lPrice.TabIndex = 9;
             this.lPrice.Text = "Total Price :";
             // 
-            // lPlaceValue
+            // lblPlaceValue
             // 
-            this.lPlaceValue.AutoSize = true;
-            this.lPlaceValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPlaceValue.Location = new System.Drawing.Point(135, 244);
-            this.lPlaceValue.Name = "lPlaceValue";
-            this.lPlaceValue.Size = new System.Drawing.Size(40, 16);
-            this.lPlaceValue.TabIndex = 8;
-            this.lPlaceValue.Text = "Eat In";
+            this.lblPlaceValue.AutoSize = true;
+            this.lblPlaceValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceValue.Location = new System.Drawing.Point(135, 244);
+            this.lblPlaceValue.Name = "lblPlaceValue";
+            this.lblPlaceValue.Size = new System.Drawing.Size(40, 16);
+            this.lblPlaceValue.TabIndex = 8;
+            this.lblPlaceValue.Text = "Eat In";
             // 
             // lPlace
             // 
@@ -350,15 +356,15 @@
             this.lPlace.TabIndex = 7;
             this.lPlace.Text = "Where To Eat :";
             // 
-            // lCrustTypeValue
+            // lblCrustTypeValue
             // 
-            this.lCrustTypeValue.AutoSize = true;
-            this.lCrustTypeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCrustTypeValue.Location = new System.Drawing.Point(118, 202);
-            this.lCrustTypeValue.Name = "lCrustTypeValue";
-            this.lCrustTypeValue.Size = new System.Drawing.Size(66, 16);
-            this.lCrustTypeValue.TabIndex = 6;
-            this.lCrustTypeValue.Text = "Thin Crust";
+            this.lblCrustTypeValue.AutoSize = true;
+            this.lblCrustTypeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCrustTypeValue.Location = new System.Drawing.Point(118, 202);
+            this.lblCrustTypeValue.Name = "lblCrustTypeValue";
+            this.lblCrustTypeValue.Size = new System.Drawing.Size(66, 16);
+            this.lblCrustTypeValue.TabIndex = 6;
+            this.lblCrustTypeValue.Text = "Thin Crust";
             // 
             // lCrustType
             // 
@@ -370,14 +376,14 @@
             this.lCrustType.TabIndex = 5;
             this.lCrustType.Text = "Crust Type :";
             // 
-            // lToppingsValue
+            // lblToppingsValue
             // 
-            this.lToppingsValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lToppingsValue.Location = new System.Drawing.Point(57, 131);
-            this.lToppingsValue.Name = "lToppingsValue";
-            this.lToppingsValue.Size = new System.Drawing.Size(175, 59);
-            this.lToppingsValue.TabIndex = 4;
-            this.lToppingsValue.Text = "No Toppings";
+            this.lblToppingsValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToppingsValue.Location = new System.Drawing.Point(57, 131);
+            this.lblToppingsValue.Name = "lblToppingsValue";
+            this.lblToppingsValue.Size = new System.Drawing.Size(175, 59);
+            this.lblToppingsValue.TabIndex = 4;
+            this.lblToppingsValue.Text = "No Toppings";
             // 
             // lToppings
             // 
@@ -389,15 +395,15 @@
             this.lToppings.TabIndex = 3;
             this.lToppings.Text = "Toppings :";
             // 
-            // lSizeValue
+            // lblSizeValue
             // 
-            this.lSizeValue.AutoSize = true;
-            this.lSizeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSizeValue.Location = new System.Drawing.Point(64, 74);
-            this.lSizeValue.Name = "lSizeValue";
-            this.lSizeValue.Size = new System.Drawing.Size(39, 16);
-            this.lSizeValue.TabIndex = 2;
-            this.lSizeValue.Text = "Small";
+            this.lblSizeValue.AutoSize = true;
+            this.lblSizeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSizeValue.Location = new System.Drawing.Point(64, 74);
+            this.lblSizeValue.Name = "lblSizeValue";
+            this.lblSizeValue.Size = new System.Drawing.Size(39, 16);
+            this.lblSizeValue.TabIndex = 2;
+            this.lblSizeValue.Text = "Small";
             // 
             // lSize
             // 
@@ -492,16 +498,16 @@
         private System.Windows.Forms.RadioButton rbTakeOut;
         private System.Windows.Forms.RadioButton rbEatIn;
         private System.Windows.Forms.GroupBox gbSummary;
-        private System.Windows.Forms.Label lSizeValue;
+        private System.Windows.Forms.Label lblSizeValue;
         private System.Windows.Forms.Label lSize;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lCrustTypeValue;
+        private System.Windows.Forms.Label lblCrustTypeValue;
         private System.Windows.Forms.Label lCrustType;
-        private System.Windows.Forms.Label lToppingsValue;
+        private System.Windows.Forms.Label lblToppingsValue;
         private System.Windows.Forms.Label lToppings;
-        private System.Windows.Forms.Label lPlaceValue;
+        private System.Windows.Forms.Label lblPlaceValue;
         private System.Windows.Forms.Label lPlace;
-        private System.Windows.Forms.Label lPriceValue;
+        private System.Windows.Forms.Label lblPriceValue;
         private System.Windows.Forms.Label lPrice;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnReset;
