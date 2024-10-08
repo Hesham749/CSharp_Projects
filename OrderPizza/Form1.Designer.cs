@@ -191,7 +191,7 @@
             // chkGreenPappers
             // 
             this.chkGreenPappers.AutoSize = true;
-            this.chkGreenPappers.Location = new System.Drawing.Point(182, 95);
+            this.chkGreenPappers.Location = new System.Drawing.Point(182, 94);
             this.chkGreenPappers.Name = "chkGreenPappers";
             this.chkGreenPappers.Size = new System.Drawing.Size(131, 23);
             this.chkGreenPappers.TabIndex = 5;
@@ -202,7 +202,7 @@
             // chkOlives
             // 
             this.chkOlives.AutoSize = true;
-            this.chkOlives.Location = new System.Drawing.Point(182, 67);
+            this.chkOlives.Location = new System.Drawing.Point(182, 66);
             this.chkOlives.Name = "chkOlives";
             this.chkOlives.Size = new System.Drawing.Size(71, 23);
             this.chkOlives.TabIndex = 4;
@@ -224,7 +224,7 @@
             // chkTmoato
             // 
             this.chkTmoato.AutoSize = true;
-            this.chkTmoato.Location = new System.Drawing.Point(16, 95);
+            this.chkTmoato.Location = new System.Drawing.Point(16, 94);
             this.chkTmoato.Name = "chkTmoato";
             this.chkTmoato.Size = new System.Drawing.Size(83, 23);
             this.chkTmoato.TabIndex = 2;
@@ -235,7 +235,7 @@
             // chkMashrooms
             // 
             this.chkMashrooms.AutoSize = true;
-            this.chkMashrooms.Location = new System.Drawing.Point(16, 67);
+            this.chkMashrooms.Location = new System.Drawing.Point(16, 66);
             this.chkMashrooms.Name = "chkMashrooms";
             this.chkMashrooms.Size = new System.Drawing.Size(109, 23);
             this.chkMashrooms.TabIndex = 1;
@@ -442,7 +442,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 630);
+            this.ClientSize = new System.Drawing.Size(1205, 630);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.gbSummary);
