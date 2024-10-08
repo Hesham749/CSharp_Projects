@@ -436,12 +436,13 @@
             this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset Form";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 638);
+            this.ClientSize = new System.Drawing.Size(1201, 630);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.gbSummary);

@@ -149,10 +149,23 @@ namespace OrderPizza
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine(gbSize.);
+            if (MessageBox.Show("Confirm Order", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                MessageBox.Show("Order Placed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gbCrust.Enabled = false;
+                gbToppings.Enabled = false;
+                gbSize.Enabled = false;
+                btnOrder.Enabled = false;
+            }
 
         }
 
-
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            gbCrust.Enabled = true;
+            gbToppings.Enabled = true;
+            gbSize.Enabled = true;
+            btnOrder.Enabled = true;
+        }
     }
 }
