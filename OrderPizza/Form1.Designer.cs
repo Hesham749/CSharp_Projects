@@ -443,7 +443,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 638);
+            this.ClientSize = new System.Drawing.Size(1201, 638);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.gbSummary);
