@@ -65,8 +65,8 @@ namespace OrderPizza
         private void AddTopping(string Topping)
         {
 
-            if (lToppingsValue.Text == "")
-                lToppingsValue.Text += Topping;
+            if (lToppingsValue.Text == "No Toppings")
+                lToppingsValue.Text = Topping;
             else
                 lToppingsValue.Text += " , " + Topping;
 
@@ -77,7 +77,7 @@ namespace OrderPizza
         private void RemoveTopping(string Topping)
         {
             if (lToppingsValue.Text.IndexOf(",") == -1)
-                lToppingsValue.Text = "";
+                lToppingsValue.Text = "No Toppings";
             else if (lToppingsValue.Text.IndexOf(Topping) == 0)
                 lToppingsValue.Text = lToppingsValue.Text.Replace(Topping + " , ", "");
             else

@@ -377,6 +377,7 @@
             this.lToppingsValue.Name = "lToppingsValue";
             this.lToppingsValue.Size = new System.Drawing.Size(175, 59);
             this.lToppingsValue.TabIndex = 4;
+            this.lToppingsValue.Text = "No Toppings";
             // 
             // lToppings
             // 
@@ -420,22 +421,24 @@
             // 
             // btnOrder
             // 
+            this.btnOrder.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnOrder.Location = new System.Drawing.Point(381, 534);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(139, 40);
             this.btnOrder.TabIndex = 6;
             this.btnOrder.Text = "Order Pizza";
-            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnReset
             // 
+            this.btnReset.BackColor = System.Drawing.Color.Red;
             this.btnReset.Location = new System.Drawing.Point(646, 534);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(139, 40);
             this.btnReset.TabIndex = 7;
             this.btnReset.Text = "Reset Form";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form1
