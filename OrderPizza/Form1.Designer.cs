@@ -101,6 +101,7 @@
             this.rbLarge.TabStop = true;
             this.rbLarge.Text = "Large";
             this.rbLarge.UseVisualStyleBackColor = true;
+            this.rbLarge.CheckedChanged += new System.EventHandler(this.rbLarge_CheckedChanged);
             // 
             // rbMedium
             // 
@@ -112,6 +113,7 @@
             this.rbMedium.TabStop = true;
             this.rbMedium.Text = "Medium";
             this.rbMedium.UseVisualStyleBackColor = true;
+            this.rbMedium.CheckedChanged += new System.EventHandler(this.rbMedium_CheckedChanged);
             // 
             // rbSmall
             // 
@@ -123,6 +125,7 @@
             this.rbSmall.TabStop = true;
             this.rbSmall.Text = "Small";
             this.rbSmall.UseVisualStyleBackColor = true;
+            this.rbSmall.CheckedChanged += new System.EventHandler(this.rbSmall_CheckedChanged);
             // 
             // gbCrust
             // 
@@ -146,6 +149,7 @@
             this.rbThick.TabStop = true;
             this.rbThick.Text = "Thick Crust";
             this.rbThick.UseVisualStyleBackColor = true;
+            this.rbThick.CheckedChanged += new System.EventHandler(this.rbThick_CheckedChanged);
             // 
             // rbThin
             // 
@@ -157,6 +161,7 @@
             this.rbThin.TabStop = true;
             this.rbThin.Text = "Thin Crust";
             this.rbThin.UseVisualStyleBackColor = true;
+            this.rbThin.CheckedChanged += new System.EventHandler(this.rbThin_CheckedChanged);
             // 
             // gbToppings
             // 
@@ -183,6 +188,7 @@
             this.chkGreenPappers.TabIndex = 5;
             this.chkGreenPappers.Text = "Green Pappers";
             this.chkGreenPappers.UseVisualStyleBackColor = true;
+            this.chkGreenPappers.CheckedChanged += new System.EventHandler(this.chkGreenPappers_CheckedChanged);
             // 
             // chkOlives
             // 
@@ -193,6 +199,7 @@
             this.chkOlives.TabIndex = 4;
             this.chkOlives.Text = "Olives";
             this.chkOlives.UseVisualStyleBackColor = true;
+            this.chkOlives.CheckedChanged += new System.EventHandler(this.chkOlives_CheckedChanged);
             // 
             // chkOnion
             // 
@@ -203,6 +210,7 @@
             this.chkOnion.TabIndex = 3;
             this.chkOnion.Text = "Onion";
             this.chkOnion.UseVisualStyleBackColor = true;
+            this.chkOnion.CheckedChanged += new System.EventHandler(this.chkOnion_CheckedChanged);
             // 
             // chkTmoato
             // 
@@ -213,6 +221,7 @@
             this.chkTmoato.TabIndex = 2;
             this.chkTmoato.Text = "Tmoato";
             this.chkTmoato.UseVisualStyleBackColor = true;
+            this.chkTmoato.CheckedChanged += new System.EventHandler(this.chkTmoato_CheckedChanged);
             // 
             // chkMashrooms
             // 
@@ -223,6 +232,7 @@
             this.chkMashrooms.TabIndex = 1;
             this.chkMashrooms.Text = "Mashrooms";
             this.chkMashrooms.UseVisualStyleBackColor = true;
+            this.chkMashrooms.CheckedChanged += new System.EventHandler(this.chkMashrooms_CheckedChanged);
             // 
             // chkCheese
             // 
@@ -233,6 +243,7 @@
             this.chkCheese.TabIndex = 0;
             this.chkCheese.Text = "Extraa Cheese";
             this.chkCheese.UseVisualStyleBackColor = true;
+            this.chkCheese.CheckedChanged += new System.EventHandler(this.chkCheese_CheckedChanged);
             // 
             // gbPlace
             // 
@@ -256,6 +267,7 @@
             this.rbTakeOut.TabStop = true;
             this.rbTakeOut.Text = "Take Out";
             this.rbTakeOut.UseVisualStyleBackColor = true;
+            this.rbTakeOut.CheckedChanged += new System.EventHandler(this.rbTakeOut_CheckedChanged);
             // 
             // rbEatIn
             // 
@@ -267,6 +279,7 @@
             this.rbEatIn.TabStop = true;
             this.rbEatIn.Text = "Eat In";
             this.rbEatIn.UseVisualStyleBackColor = true;
+            this.rbEatIn.CheckedChanged += new System.EventHandler(this.rbEatIn_CheckedChanged);
             // 
             // gbSummary
             // 
@@ -294,9 +307,8 @@
             this.lSizeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lSizeValue.Location = new System.Drawing.Point(57, 72);
             this.lSizeValue.Name = "lSizeValue";
-            this.lSizeValue.Size = new System.Drawing.Size(44, 16);
+            this.lSizeValue.Size = new System.Drawing.Size(0, 16);
             this.lSizeValue.TabIndex = 2;
-            this.lSizeValue.Text = "Order ";
             this.lSizeValue.Click += new System.EventHandler(this.label3_Click);
             // 
             // lSize
@@ -336,7 +348,6 @@
             this.lToppingsValue.Name = "lToppingsValue";
             this.lToppingsValue.Size = new System.Drawing.Size(175, 59);
             this.lToppingsValue.TabIndex = 4;
-            this.lToppingsValue.Text = "Order ";
             // 
             // lCrustTypeValue
             // 
@@ -344,9 +355,8 @@
             this.lCrustTypeValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lCrustTypeValue.Location = new System.Drawing.Point(111, 200);
             this.lCrustTypeValue.Name = "lCrustTypeValue";
-            this.lCrustTypeValue.Size = new System.Drawing.Size(44, 16);
+            this.lCrustTypeValue.Size = new System.Drawing.Size(0, 16);
             this.lCrustTypeValue.TabIndex = 6;
-            this.lCrustTypeValue.Text = "Order ";
             // 
             // lCrustType
             // 
@@ -364,9 +374,8 @@
             this.lPlaceValue.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lPlaceValue.Location = new System.Drawing.Point(128, 242);
             this.lPlaceValue.Name = "lPlaceValue";
-            this.lPlaceValue.Size = new System.Drawing.Size(44, 16);
+            this.lPlaceValue.Size = new System.Drawing.Size(0, 16);
             this.lPlaceValue.TabIndex = 8;
-            this.lPlaceValue.Text = "Order ";
             // 
             // lPlace
             // 
@@ -386,9 +395,9 @@
             this.lPriceValue.ForeColor = System.Drawing.Color.ForestGreen;
             this.lPriceValue.Location = new System.Drawing.Point(103, 280);
             this.lPriceValue.Name = "lPriceValue";
-            this.lPriceValue.Size = new System.Drawing.Size(76, 56);
+            this.lPriceValue.Size = new System.Drawing.Size(102, 56);
             this.lPriceValue.TabIndex = 10;
-            this.lPriceValue.Text = "$0";
+            this.lPriceValue.Text = "$20";
             // 
             // lPrice
             // 
