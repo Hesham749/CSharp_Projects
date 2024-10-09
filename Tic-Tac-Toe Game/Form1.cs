@@ -18,8 +18,9 @@ namespace Tic_Tac_Toe_Game
             InitializeComponent();
         }
 
-        private bool Player1Turn = true;
-        private byte MoveCounter = 0;
+        private bool _Player1Turn = true;
+        private bool _HaveWinner = false;
+        private byte _MoveCounter = 0;
         private enum enChoices : Byte
         {
             X = 1, O
@@ -38,10 +39,10 @@ namespace Tic_Tac_Toe_Game
 
         private void ChangeTurn()
         {
-            MoveCounter++;
-            if (MoveCounter <= 8)
+            _MoveCounter++;
+            if (_MoveCounter <= 8 && !_HaveWinner)
             {
-                lblTurn.Text = (Player1Turn = !Player1Turn) ? "Player 1" : "Player 2";
+                lblTurn.Text = (_Player1Turn = !_Player1Turn) ? "Player 1" : "Player 2";
             }
         }
 
@@ -49,7 +50,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (Box.Tag.ToString() == 0.ToString())
             {
-                if (Player1Turn)
+                if (_Player1Turn)
                 {
                     Box.Image = Resources.X;
                     Box.Tag = enChoices.X;
@@ -80,10 +81,13 @@ namespace Tic_Tac_Toe_Game
         }
         private void EndResult()
         {
-            lblWinner.Text = (Player1Turn) ? "Player 1" : "Player 2";
+            lblWinner.Text = (_Player1Turn) ? "Player 1" : "Player 2";
+            lblWinner.Text = (_MoveCounter >= 8) ? "Draw" : lblWinner.Text;
+            if (lblWinner.Text != "Draw")
+                _HaveWinner = true;
             lblTurn.Text = "Game Over";
             MessageBox.Show("Game Over", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DrawWinLine((Player1Turn) ? enChoices.X.ToString() : enChoices.O.ToString());
+            DrawWinLine((_Player1Turn) ? enChoices.X.ToString() : enChoices.O.ToString());
             ToggleFreezeGame();
         }
 
@@ -178,9 +182,8 @@ namespace Tic_Tac_Toe_Game
             }
             else
             {
-                if (MoveCounter >= 8)
+                if (_MoveCounter >= 8)
                 {
-                    lblWinner.Text = "Draw";
                     EndResult();
                 }
             }
@@ -273,8 +276,9 @@ namespace Tic_Tac_Toe_Game
         {
             lblWinner.Text = "In Progress";
             lblTurn.Text = "Player 1";
-            Player1Turn = true;
-            MoveCounter = 0;
+            _Player1Turn = true;
+            _HaveWinner = false;
+            _MoveCounter = 0;
             pb1.Image = Resources.question_mark_96;
             pb1.Tag = 0;
             pb1.BackColor = Color.Black;
