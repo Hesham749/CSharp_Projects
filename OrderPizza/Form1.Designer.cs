@@ -80,6 +80,7 @@
             // 
             // gbSize
             // 
+            this.gbSize.BackColor = System.Drawing.SystemColors.Control;
             this.gbSize.Controls.Add(this.rbLarge);
             this.gbSize.Controls.Add(this.rbMedium);
             this.gbSize.Controls.Add(this.rbSmall);
