@@ -154,12 +154,25 @@ namespace OrderPizza
 
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void ResetForm()
         {
             gbCrust.Enabled = true;
             gbToppings.Enabled = true;
             gbSize.Enabled = true;
             btnOrder.Enabled = true;
+            rbSmall.Checked = true;
+            rbThin.Checked = true;
+            rbEatIn.Checked = true;
+            chkCheese.Checked = false;
+            chkTmoato.Checked = false;
+            chkMashrooms.Checked = false;
+            chkOlives.Checked = false;
+            chkOnion.Checked = false;
+            chkGreenPappers.Checked = false;
+        }
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }
