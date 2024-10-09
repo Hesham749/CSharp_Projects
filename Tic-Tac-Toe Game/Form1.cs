@@ -67,17 +67,17 @@ namespace Tic_Tac_Toe_Game
             return false;
         }
 
-        private void ToggleFreezeGame()
+        private void FreezeGame(bool Freeze = true)
         {
-            pb1.Enabled = !pb1.Enabled;
-            pb2.Enabled = !pb2.Enabled;
-            pb3.Enabled = !pb3.Enabled;
-            pb4.Enabled = !pb4.Enabled;
-            pb5.Enabled = !pb5.Enabled;
-            pb6.Enabled = !pb6.Enabled;
-            pb7.Enabled = !pb7.Enabled;
-            pb8.Enabled = !pb8.Enabled;
-            pb9.Enabled = !pb9.Enabled;
+            pb1.Enabled = !Freeze;
+            pb2.Enabled = !Freeze;
+            pb3.Enabled = !Freeze;
+            pb4.Enabled = !Freeze;
+            pb5.Enabled = !Freeze;
+            pb6.Enabled = !Freeze;
+            pb7.Enabled = !Freeze;
+            pb8.Enabled = !Freeze;
+            pb9.Enabled = !Freeze;
         }
 
         private void EndResult()
@@ -89,7 +89,7 @@ namespace Tic_Tac_Toe_Game
             lblTurn.Text = "Game Over";
             MessageBox.Show("Game Over", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DrawWinLine((_Player1Turn) ? enChoices.X.ToString() : enChoices.O.ToString());
-            ToggleFreezeGame();
+            FreezeGame();
         }
 
         private void DrawWinLine(string WinnerTag)
@@ -147,7 +147,8 @@ namespace Tic_Tac_Toe_Game
             }
         }
 
-        private void CheckResult(string BoxTag)
+
+        private void CheckWinner(string BoxTag)
         {
 
             //check rows
@@ -195,7 +196,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb1.Tag.ToString());
+                CheckWinner(pb1.Tag.ToString());
                 ChangeTurn();
             }
 
@@ -205,7 +206,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb2.Tag.ToString());
+                CheckWinner(pb2.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -214,7 +215,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb3.Tag.ToString());
+                CheckWinner(pb3.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -223,7 +224,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb4.Tag.ToString());
+                CheckWinner(pb4.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -232,7 +233,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb5.Tag.ToString());
+                CheckWinner(pb5.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -241,7 +242,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb6.Tag.ToString());
+                CheckWinner(pb6.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -250,7 +251,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb7.Tag.ToString());
+                CheckWinner(pb7.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -259,7 +260,7 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb8.Tag.ToString());
+                CheckWinner(pb8.Tag.ToString());
                 ChangeTurn();
             }
         }
@@ -268,9 +269,16 @@ namespace Tic_Tac_Toe_Game
         {
             if (ChangePic((PictureBox)sender))
             {
-                CheckResult(pb9.Tag.ToString());
+                CheckWinner(pb9.Tag.ToString());
                 ChangeTurn();
             }
+        }
+
+        private void ResetPb(PictureBox pb)
+        {
+            pb.Image = Resources.question_mark_96;
+            pb.Tag = 0;
+            pb.BackColor = Color.Black;
         }
 
         private void ResetGame()
@@ -280,34 +288,16 @@ namespace Tic_Tac_Toe_Game
             _Player1Turn = true;
             _HaveWinner = false;
             _MoveCounter = 0;
-            pb1.Image = Resources.question_mark_96;
-            pb1.Tag = 0;
-            pb1.BackColor = Color.Black;
-            pb2.Image = Resources.question_mark_96;
-            pb2.Tag = 0;
-            pb2.BackColor = Color.Black;
-            pb3.Image = Resources.question_mark_96;
-            pb3.Tag = 0;
-            pb3.BackColor = Color.Black;
-            pb4.Image = Resources.question_mark_96;
-            pb4.Tag = 0;
-            pb4.BackColor = Color.Black;
-            pb5.Image = Resources.question_mark_96;
-            pb5.Tag = 0;
-            pb5.BackColor = Color.Black;
-            pb6.Image = Resources.question_mark_96;
-            pb6.Tag = 0;
-            pb6.BackColor = Color.Black;
-            pb7.Image = Resources.question_mark_96;
-            pb7.Tag = 0;
-            pb7.BackColor = Color.Black;
-            pb8.Image = Resources.question_mark_96;
-            pb8.Tag = 0;
-            pb8.BackColor = Color.Black;
-            pb9.Image = Resources.question_mark_96;
-            pb9.Tag = 0;
-            pb9.BackColor = Color.Black;
-            ToggleFreezeGame();
+            ResetPb(pb1);
+            ResetPb(pb2);
+            ResetPb(pb3);
+            ResetPb(pb4);
+            ResetPb(pb5);
+            ResetPb(pb6);
+            ResetPb(pb7);
+            ResetPb(pb8);
+            ResetPb(pb9);
+            FreezeGame(false);
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
