@@ -462,7 +462,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Pizza Order";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.gbSize.ResumeLayout(false);
             this.gbSize.PerformLayout();
             this.gbCrust.ResumeLayout(false);
