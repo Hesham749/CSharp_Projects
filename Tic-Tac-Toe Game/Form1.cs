@@ -29,9 +29,6 @@ namespace Tic_Tac_Toe_Game
             e.Graphics.DrawLine(pen, 1099, 143, 1099, 710);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
+  
     }
 }

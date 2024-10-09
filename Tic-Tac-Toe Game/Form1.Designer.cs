@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(115, 126);
+            this.label1.Location = new System.Drawing.Point(115, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 58);
             this.label1.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(115, 294);
+            this.label2.Location = new System.Drawing.Point(115, 314);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 58);
             this.label2.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.lblTurn.AutoSize = true;
             this.lblTurn.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTurn.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTurn.Location = new System.Drawing.Point(115, 210);
+            this.lblTurn.Location = new System.Drawing.Point(115, 228);
             this.lblTurn.Name = "lblTurn";
             this.lblTurn.Size = new System.Drawing.Size(223, 58);
             this.lblTurn.TabIndex = 2;
@@ -92,7 +92,7 @@
             this.lblWinner.AutoSize = true;
             this.lblWinner.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinner.ForeColor = System.Drawing.Color.LawnGreen;
-            this.lblWinner.Location = new System.Drawing.Point(115, 378);
+            this.lblWinner.Location = new System.Drawing.Point(115, 400);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(306, 58);
             this.lblWinner.TabIndex = 3;
@@ -253,7 +253,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
