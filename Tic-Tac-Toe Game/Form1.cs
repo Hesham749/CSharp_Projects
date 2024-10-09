@@ -79,6 +79,7 @@ namespace Tic_Tac_Toe_Game
             pb8.Enabled = !pb8.Enabled;
             pb9.Enabled = !pb9.Enabled;
         }
+
         private void EndResult()
         {
             lblWinner.Text = (_Player1Turn) ? "Player 1" : "Player 2";
@@ -145,6 +146,7 @@ namespace Tic_Tac_Toe_Game
                 pb9.BackColor = Color.GreenYellow;
             }
         }
+
         private void CheckResult(string BoxTag)
         {
 
@@ -198,7 +200,6 @@ namespace Tic_Tac_Toe_Game
             }
 
         }
-
 
         private void pb2_Click(object sender, EventArgs e)
         {
