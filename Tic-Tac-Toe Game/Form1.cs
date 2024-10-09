@@ -23,10 +23,10 @@ namespace Tic_Tac_Toe_Game
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
 
-            e.Graphics.DrawLine(pen, 610, 325, 1330, 325);
-            e.Graphics.DrawLine(pen, 610, 525, 1330, 525);
-            e.Graphics.DrawLine(pen, 850, 150, 850, 700);
-            e.Graphics.DrawLine(pen, 1100, 150, 1100, 700);
+            e.Graphics.DrawLine(pen, 610, 328, 1338, 328);
+            e.Graphics.DrawLine(pen, 610, 525, 1338, 525);
+            e.Graphics.DrawLine(pen, 850, 143, 850, 710);
+            e.Graphics.DrawLine(pen, 1099, 143, 1099, 710);
         }
 
         private void Form1_Load(object sender, EventArgs e)
