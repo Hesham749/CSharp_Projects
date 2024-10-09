@@ -156,10 +156,12 @@ namespace OrderPizza
 
         private void ResetForm()
         {
+            //enable groups
             gbCrust.Enabled = true;
             gbToppings.Enabled = true;
             gbSize.Enabled = true;
             btnOrder.Enabled = true;
+            //default values
             rbSmall.Checked = true;
             rbThin.Checked = true;
             rbEatIn.Checked = true;
