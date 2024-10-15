@@ -103,7 +103,10 @@ namespace Tic_Tac_Toe_Game
         private bool CheckResult(PictureBox pb1, PictureBox pb2, PictureBox pb3)
         {
             if (pb1.Tag.ToString() != 0.ToString() && pb1.Tag.ToString() == pb2.Tag.ToString() && pb1.Tag.ToString() == pb3.Tag.ToString())
+            {
+                DrawWinLine(pb1, pb2, pb3);
                 return true;
+            }
             return false;
         }
 
@@ -113,42 +116,36 @@ namespace Tic_Tac_Toe_Game
             //check rows
             if (CheckResult(pb1, pb2, pb3))
             {
-                DrawWinLine(pb1, pb2, pb3);
                 EndResult();
                 return;
             }
 
             if (CheckResult(pb4, pb5, pb6))
             {
-                DrawWinLine(pb4, pb5, pb6);
                 EndResult();
                 return;
             }
 
             if (CheckResult(pb7, pb8, pb9))
             {
-                DrawWinLine(pb7, pb8, pb9);
                 EndResult();
                 return;
             }
             //check cols
             if (CheckResult(pb1, pb4, pb7))
             {
-                DrawWinLine(pb1, pb4, pb7);
                 EndResult();
                 return;
             }
 
             if (CheckResult(pb2, pb5, pb8))
             {
-                DrawWinLine(pb2, pb5, pb8);
                 EndResult();
                 return;
             }
 
             if (CheckResult(pb3, pb6, pb9))
             {
-                DrawWinLine(pb3, pb6, pb9);
                 EndResult();
                 return;
             }
@@ -157,14 +154,12 @@ namespace Tic_Tac_Toe_Game
 
             if (CheckResult(pb1, pb5, pb9))
             {
-                DrawWinLine(pb1, pb5, pb9);
                 EndResult();
                 return;
             }
 
             if (CheckResult(pb3, pb5, pb7))
             {
-                DrawWinLine(pb3, pb5, pb7);
                 EndResult();
                 return;
             }
