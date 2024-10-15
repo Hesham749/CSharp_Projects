@@ -138,7 +138,7 @@
             this.pb1.TabIndex = 6;
             this.pb1.TabStop = false;
             this.pb1.Tag = "0";
-            this.pb1.Click += new System.EventHandler(this.pb1_Click);
+            this.pb1.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb4
             // 
@@ -152,7 +152,7 @@
             this.pb4.TabIndex = 7;
             this.pb4.TabStop = false;
             this.pb4.Tag = "0";
-            this.pb4.Click += new System.EventHandler(this.pb4_Click);
+            this.pb4.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb2
             // 
@@ -166,7 +166,7 @@
             this.pb2.TabIndex = 8;
             this.pb2.TabStop = false;
             this.pb2.Tag = "0";
-            this.pb2.Click += new System.EventHandler(this.pb2_Click);
+            this.pb2.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb3
             // 
@@ -180,7 +180,7 @@
             this.pb3.TabIndex = 9;
             this.pb3.TabStop = false;
             this.pb3.Tag = "0";
-            this.pb3.Click += new System.EventHandler(this.pb3_Click);
+            this.pb3.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb7
             // 
@@ -194,7 +194,7 @@
             this.pb7.TabIndex = 10;
             this.pb7.TabStop = false;
             this.pb7.Tag = "0";
-            this.pb7.Click += new System.EventHandler(this.pb7_Click);
+            this.pb7.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb5
             // 
@@ -208,7 +208,7 @@
             this.pb5.TabIndex = 11;
             this.pb5.TabStop = false;
             this.pb5.Tag = "0";
-            this.pb5.Click += new System.EventHandler(this.pb5_Click);
+            this.pb5.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb6
             // 
@@ -222,7 +222,7 @@
             this.pb6.TabIndex = 12;
             this.pb6.TabStop = false;
             this.pb6.Tag = "0";
-            this.pb6.Click += new System.EventHandler(this.pb6_Click);
+            this.pb6.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb8
             // 
@@ -236,7 +236,7 @@
             this.pb8.TabIndex = 13;
             this.pb8.TabStop = false;
             this.pb8.Tag = "0";
-            this.pb8.Click += new System.EventHandler(this.pb8_Click);
+            this.pb8.Click += new System.EventHandler(this.pb_Click);
             // 
             // pb9
             // 
@@ -250,7 +250,7 @@
             this.pb9.TabIndex = 14;
             this.pb9.TabStop = false;
             this.pb9.Tag = "0";
-            this.pb9.Click += new System.EventHandler(this.pb9_Click);
+            this.pb9.Click += new System.EventHandler(this.pb_Click);
             // 
             // Form1
             // 

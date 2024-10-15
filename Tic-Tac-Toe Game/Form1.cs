@@ -88,101 +88,87 @@ namespace Tic_Tac_Toe_Game
                 _HaveWinner = true;
             lblTurn.Text = "Game Over";
             MessageBox.Show("Game Over", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DrawWinLine((_Player1Turn) ? enChoices.X.ToString() : enChoices.O.ToString());
             FreezeGame();
         }
 
-        private void DrawWinLine(string WinnerTag)
+        private void DrawWinLine(PictureBox pb1, PictureBox pb2, PictureBox pb3)
         {
-            //draw row
-            if (WinnerTag == pb1.Tag.ToString() && pb1.Tag.ToString() == pb2.Tag.ToString() && pb1.Tag.ToString() == pb3.Tag.ToString())
-            {
-                pb1.BackColor = Color.GreenYellow;
-                pb2.BackColor = Color.GreenYellow;
-                pb3.BackColor = Color.GreenYellow;
-            }
-            if (WinnerTag == pb4.Tag.ToString() && pb4.Tag.ToString() == pb5.Tag.ToString() && pb4.Tag.ToString() == pb6.Tag.ToString())
-            {
-                pb4.BackColor = Color.GreenYellow;
-                pb5.BackColor = Color.GreenYellow;
-                pb6.BackColor = Color.GreenYellow;
-            }
-            if (WinnerTag == pb7.Tag.ToString() && pb7.Tag.ToString() == pb8.Tag.ToString() && pb7.Tag.ToString() == pb9.Tag.ToString())
-            {
-                pb7.BackColor = Color.GreenYellow;
-                pb8.BackColor = Color.GreenYellow;
-                pb9.BackColor = Color.GreenYellow;
-            }
-            //draw col
-            if (WinnerTag == pb1.Tag.ToString() && pb1.Tag.ToString() == pb4.Tag.ToString() && pb1.Tag.ToString() == pb7.Tag.ToString())
-            {
-                pb1.BackColor = Color.GreenYellow;
-                pb4.BackColor = Color.GreenYellow;
-                pb7.BackColor = Color.GreenYellow;
-            }
-            if (WinnerTag == pb2.Tag.ToString() && pb2.Tag.ToString() == pb5.Tag.ToString() && pb2.Tag.ToString() == pb8.Tag.ToString())
-            {
-                pb2.BackColor = Color.GreenYellow;
-                pb5.BackColor = Color.GreenYellow;
-                pb8.BackColor = Color.GreenYellow;
-            }
-            if (WinnerTag == pb3.Tag.ToString() && pb3.Tag.ToString() == pb6.Tag.ToString() && pb3.Tag.ToString() == pb9.Tag.ToString())
-            {
-                pb3.BackColor = Color.GreenYellow;
-                pb6.BackColor = Color.GreenYellow;
-                pb9.BackColor = Color.GreenYellow;
-            }
-            //draw x
-            if (WinnerTag == pb5.Tag.ToString() && pb5.Tag.ToString() == pb3.Tag.ToString() && pb5.Tag.ToString() == pb7.Tag.ToString())
-            {
-                pb5.BackColor = Color.GreenYellow;
-                pb3.BackColor = Color.GreenYellow;
-                pb7.BackColor = Color.GreenYellow;
-            }
-            if (WinnerTag == pb5.Tag.ToString() && pb5.Tag.ToString() == pb1.Tag.ToString() && pb5.Tag.ToString() == pb9.Tag.ToString())
-            {
-                pb5.BackColor = Color.GreenYellow;
-                pb1.BackColor = Color.GreenYellow;
-                pb9.BackColor = Color.GreenYellow;
-            }
+
+            pb1.BackColor = Color.GreenYellow;
+            pb2.BackColor = Color.GreenYellow;
+            pb3.BackColor = Color.GreenYellow;
+
         }
 
+        private bool CheckResult(PictureBox pb1, PictureBox pb2, PictureBox pb3)
+        {
+            if (pb1.Tag.ToString() != 0.ToString() && pb1.Tag.ToString() == pb2.Tag.ToString() && pb1.Tag.ToString() == pb3.Tag.ToString())
+                return true;
+            return false;
+        }
 
-        private void CheckWinner(string BoxTag)
+        private void CheckWinner()
         {
 
             //check rows
-            if (
-                (BoxTag == pb1.Tag.ToString() && BoxTag == pb2.Tag.ToString() && BoxTag == pb3.Tag.ToString())
-                ||
-                (BoxTag == pb4.Tag.ToString() && BoxTag == pb5.Tag.ToString() && BoxTag == pb6.Tag.ToString())
-                ||
-                (BoxTag == pb7.Tag.ToString() && BoxTag == pb8.Tag.ToString() && BoxTag == pb9.Tag.ToString())
-                )
+            if (CheckResult(pb1, pb2, pb3))
             {
+                DrawWinLine(pb1, pb2, pb3);
                 EndResult();
+                return;
+            }
+
+            if (CheckResult(pb4, pb5, pb6))
+            {
+                DrawWinLine(pb4, pb5, pb6);
+                EndResult();
+                return;
+            }
+
+            if (CheckResult(pb7, pb8, pb9))
+            {
+                DrawWinLine(pb7, pb8, pb9);
+                EndResult();
+                return;
             }
             //check cols
-            else if (
-                (BoxTag == pb1.Tag.ToString() && BoxTag == pb4.Tag.ToString() && BoxTag == pb7.Tag.ToString())
-                ||
-                (BoxTag == pb2.Tag.ToString() && BoxTag == pb5.Tag.ToString() && BoxTag == pb8.Tag.ToString())
-                ||
-                (BoxTag == pb3.Tag.ToString() && BoxTag == pb6.Tag.ToString() && BoxTag == pb9.Tag.ToString())
-                )
+            if (CheckResult(pb1, pb4, pb7))
             {
+                DrawWinLine(pb1, pb4, pb7);
                 EndResult();
+                return;
+            }
+
+            if (CheckResult(pb2, pb5, pb8))
+            {
+                DrawWinLine(pb2, pb5, pb8);
+                EndResult();
+                return;
+            }
+
+            if (CheckResult(pb3, pb6, pb9))
+            {
+                DrawWinLine(pb3, pb6, pb9);
+                EndResult();
+                return;
             }
 
             //check x
-            else if (
-               (BoxTag == pb1.Tag.ToString() && BoxTag == pb5.Tag.ToString() && BoxTag == pb9.Tag.ToString())
-               ||
-               (BoxTag == pb3.Tag.ToString() && BoxTag == pb5.Tag.ToString() && BoxTag == pb7.Tag.ToString())
-               )
+
+            if (CheckResult(pb1, pb5, pb9))
             {
+                DrawWinLine(pb1, pb5, pb9);
                 EndResult();
+                return;
             }
+
+            if (CheckResult(pb3, pb5, pb7))
+            {
+                DrawWinLine(pb3, pb5, pb7);
+                EndResult();
+                return;
+            }
+
             else
             {
                 if (_MoveCounter >= 8)
@@ -192,84 +178,11 @@ namespace Tic_Tac_Toe_Game
             }
         }
 
-        private void pb1_Click(object sender, EventArgs e)
+        private void pb_Click(object sender, EventArgs e)
         {
-            if (ChangePic((PictureBox)sender))
+            if (ChangePic(sender as PictureBox))
             {
-                CheckWinner(pb1.Tag.ToString());
-                ChangeTurn();
-            }
-
-        }
-
-        private void pb2_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb2.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb3_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb3.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb4_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb4.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb5_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb5.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb6_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb6.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb7_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb7.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb8_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb8.Tag.ToString());
-                ChangeTurn();
-            }
-        }
-
-        private void pb9_Click(object sender, EventArgs e)
-        {
-            if (ChangePic((PictureBox)sender))
-            {
-                CheckWinner(pb9.Tag.ToString());
+                CheckWinner();
                 ChangeTurn();
             }
         }
