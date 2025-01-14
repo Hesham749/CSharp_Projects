@@ -24,7 +24,9 @@ namespace Contacts.PresentationLayer
         {
             ClsCountry c1 = ClsCountry.FindByID(ID);
             if (c1 != null)
-                Console.WriteLine("Country found");
+            {
+                Console.WriteLine($"{c1.CountryID}, {c1.CountryName}");
+            }
             else Console.WriteLine("Country not found");
         }
 
