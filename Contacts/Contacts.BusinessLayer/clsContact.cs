@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using Contacts.DataAccessLayer;
+﻿using Contacts.DataAccessLayer;
+using System;
 namespace Contacts.BusinessLayer
 {
     public class ClsContact
     {
+        public enum enMode
+        {
+            Update = 1,
+            AddNew,
+            Delete
+        }
 
-        public int ID { get; set; }
+        public int ID { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -20,14 +20,17 @@ namespace Contacts.BusinessLayer
         public DateTime DateOfBirth { get; set; }
         public int CountryID { get; set; }
         public string ImagePath { get; set; }
+        public enMode Mode { get; private set; }
 
 
 
         public ClsContact()
         {
+            ID = -1;
+            Mode = enMode.AddNew;
         }
 
-        public ClsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
+        private ClsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
         {
             ID = iD;
             FirstName = firstName;
@@ -38,18 +41,38 @@ namespace Contacts.BusinessLayer
             DateOfBirth = dateOfBirth;
             CountryID = countryID;
             ImagePath = imagePath;
+            Mode = enMode.Update;
         }
 
         public static ClsContact Find(int ID)
         {
-            ClsContactsDataAccess.stContactData contactData = new ClsContactsDataAccess.stContactData();
-            contactData.ID = ID;
+            ClsContactsDataAccess.stContactData contactData = new ClsContactsDataAccess.stContactData
+            {
+                ID = ID
+            };
             if (ClsContactsDataAccess.FindContactData(ref contactData))
             {
                 return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
             }
             else
                 return null;
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                case enMode.Update:
+                    return (_AddNewContact()) ? true : false;
+            }
+            return false;
+        }
+
+        private bool _AddNewContact()
+        {
+            ID = ClsContactsDataAccess.AddNewContact(FirstName, LastName, Email, Phone, Address, DateOfBirth, CountryID, ImagePath);
+            return ID != -1;
         }
     }
 }

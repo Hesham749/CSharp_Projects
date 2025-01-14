@@ -7,7 +7,24 @@ namespace Contacts.PresentationLayer
         static void Main(string[] args)
         {
 
-            TestFindContact(2);
+            //TestFindContact(2);
+            TestAddNewContact();
+        }
+
+        private static void TestAddNewContact()
+        {
+            ClsContact contact1 = new ClsContact()
+            {
+                FirstName = "Foo",
+                LastName = "Bar",
+                Address = "any address",
+                ImagePath = "",
+                Phone = "010123244",
+                CountryID = 3,
+                Email = "@mail.com",
+                DateOfBirth = new DateTime(1994, 07, 20)
+            };
+
         }
 
         public static void TestFindContact(int ID)

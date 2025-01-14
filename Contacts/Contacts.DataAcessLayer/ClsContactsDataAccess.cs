@@ -55,5 +55,36 @@ namespace Contacts.DataAccessLayer
             }
             return found;
         }
+
+        public static int AddNewContact(string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
+        {
+            int contactId = -1;
+            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            var query = @"insert into contacts (firstName, lastName, email,Phone,Address,DateOfBirth,CountryId,imagePath)
+                        values(@firstName,@lastName,@email,@phone,@address,@dateOfBirth,@countryId,@imagePath);
+                         select scope_identity();";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@firstName", firstName);
+            cmd.Parameters.AddWithValue("@lastName", lastName);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+            cmd.Parameters.AddWithValue("@countryId", countryID);
+            cmd.Parameters.AddWithValue("@imagePath", ((imagePath != "") ? imagePath : null));
+
+            try
+            {
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int insertedId))
+                    contactId = (insertedId > 0) ? insertedId : -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return contactId;
+        }
     }
 }
