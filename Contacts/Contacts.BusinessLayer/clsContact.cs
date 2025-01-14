@@ -50,7 +50,7 @@ namespace Contacts.BusinessLayer
             {
                 ID = ID
             };
-            if (ClsContactsDataAccess.FindContactData(ref contactData))
+            if (ClsContactsDataAccess.GetContactInfoByID(ref contactData))
             {
                 return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
             }
@@ -63,10 +63,17 @@ namespace Contacts.BusinessLayer
             switch (Mode)
             {
                 case enMode.AddNew:
-                case enMode.Update:
+                    Mode = enMode.Update;
                     return (_AddNewContact()) ? true : false;
+                case enMode.Update:
+                    return (_UpdateContact())?true: false;
             }
             return false;
+        }
+
+        private bool _UpdateContact()
+        {
+            return ClsContactsDataAccess.UpdateContact(ID,FirstName,LastName,Email, CountryID,Address,DateOfBirth,ImagePath,Phone);
         }
 
         private bool _AddNewContact()

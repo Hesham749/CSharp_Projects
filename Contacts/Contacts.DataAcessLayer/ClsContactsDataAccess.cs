@@ -16,7 +16,7 @@ namespace Contacts.DataAccessLayer
             public string ImagePath { get; set; }
             public int CountryID { get; set; }
         }
-        public static bool FindContactData(ref stContactData contactData)
+        public static bool GetContactInfoByID(ref stContactData contactData)
         {
             bool found = false;
             SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
@@ -91,6 +91,46 @@ namespace Contacts.DataAccessLayer
                 conn.Close();
             }
             return contactId;
+        }
+
+        public static bool UpdateContact(int iD, string firstName, string lastName, string email, int countryID, string address, DateTime dateOfBirth, string imagePath, string phone)
+        {
+            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            string query = @"update contacts 
+                            set firstName = @firstName ,
+                            lastName = @lastName,
+                            Email = @email,
+                            Phone = @phone,
+                            Address= @address,
+                            CountryId = @countryID,
+                            imagePath = @imagePath
+                            where contactId = @iD";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@firstName", firstName);
+            cmd.Parameters.AddWithValue("@lastName", lastName);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+            cmd.Parameters.AddWithValue("@countryID", countryID);
+            cmd.Parameters.AddWithValue("@iD", iD);
+            if (imagePath != null)
+                cmd.Parameters.AddWithValue("@imagePath", imagePath);
+            else
+                cmd.Parameters.AddWithValue("imagePath", DBNull.Value);
+            int rowAffected = 0;
+            try
+            {
+                conn.Open();
+                rowAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally { conn.Close(); }
+            return (rowAffected > 0);
         }
     }
 }

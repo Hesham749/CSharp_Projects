@@ -8,8 +8,9 @@ namespace Contacts.PresentationLayer
         {
 
             //TestFindContact(2);
-            TestAddNewContact();
-            Console.ReadKey();
+            //TestAddNewContact();
+            TestUpdateContact(14);
+            //Console.ReadKey();
         }
 
         private static void TestAddNewContact()
@@ -50,6 +51,33 @@ namespace Contacts.PresentationLayer
             {
                 Console.WriteLine($"contact with {ID} not found");
             }
+
+        }
+
+        public static void TestUpdateContact(int ID)
+        {
+            ClsContact contact = ClsContact.Find(ID);
+
+            if (contact != null)
+            {
+                contact.FirstName = "sayed";
+                contact.LastName = "Ali";
+                contact.Email = "@23mail.com";
+                contact.Phone = "242354235";
+                contact.Address = "new address";
+                contact.DateOfBirth = new DateTime(2000, 10, 12);
+                contact.CountryID = 1;
+                contact.ImagePath = "";
+                if (contact.Save())
+                    Console.WriteLine("contact updated successfully");
+                else
+                    Console.WriteLine("contact didn't update");
+            }
+            else
+            {
+                Console.WriteLine($"contact with {ID} not found");
+            }
+
 
         }
     }
