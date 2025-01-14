@@ -1,4 +1,5 @@
 ﻿using Contacts.BusinessLayer;
+using Country.BusinessLayer;
 using System;
 using System.Data;
 namespace Contacts.PresentationLayer
@@ -13,9 +14,18 @@ namespace Contacts.PresentationLayer
             //TestUpdateContact(14);
             //TestDeleteContact(14);
             //TestListContacts();
-            TestExist(1);
-            TestExist(10);
+            //TestExist(1);
+            //TestExist(10);
+            TestFindCountry(1);
             Console.ReadKey();
+        }
+
+        private static void TestFindCountry(int ID)
+        {
+            ClsCountry c1 = ClsCountry.FindByID(ID);
+            if (c1 != null)
+                Console.WriteLine("Country found");
+            else Console.WriteLine("Country not found");
         }
 
         private static void TestExist(int ID)

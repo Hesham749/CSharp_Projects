@@ -28,8 +28,8 @@ namespace Country.BusinessLayer
 
         public static ClsCountry FindByID(int ID)
         {
-            ClsCountryDataAccessLayer.stCountryData countryData = ClsCountryDataAccessLayer.FindByID(ID);
-            
+            var countryData = new ClsCountryDataAccessLayer.stCountryData();
+            return (ClsCountryDataAccessLayer.FindByID(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
         }
 
     }
