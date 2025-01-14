@@ -130,7 +130,7 @@ namespace Contacts.DataAccessLayer
                 return false;
             }
             finally { conn.Close(); }
-            return (rowAffected > 0);
+            return rowAffected > 0;
         }
     }
 }
