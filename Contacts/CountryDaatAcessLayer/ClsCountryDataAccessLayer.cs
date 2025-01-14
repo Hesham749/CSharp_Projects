@@ -39,10 +39,22 @@ namespace Country.DataAccessLayer
             return found;
         }
 
-
-
-
-
-
+        public static bool AddCountry(stCountryData CData)
+        {
+            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var query = @"insert into countries(CountryName)
+                          values(@countryName);
+                        select  scope_identity();";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@countryName", CData.CountryName);
+            try
+            {
+                conn.Open();
+                CData.CountryID = (int.TryParse(cmd.ExecuteScalar().ToString(), out int insertedID)) ? insertedID : -1;
+            }
+            catch (Exception x) { Console.WriteLine(x.Message); }
+            finally { conn.Close(); }
+            return CData.CountryID != -1;
+        }
     }
 }

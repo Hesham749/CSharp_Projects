@@ -2,6 +2,7 @@
 using Country.BusinessLayer;
 using System;
 using System.Data;
+using System.Diagnostics.Contracts;
 namespace Contacts.PresentationLayer
 {
     internal class Program
@@ -16,8 +17,18 @@ namespace Contacts.PresentationLayer
             //TestListContacts();
             //TestExist(1);
             //TestExist(10);
-            TestFindCountry(1);
+            //TestFindCountry(1);
+            TestAddNewCountry();
             Console.ReadKey();
+        }
+
+        private static void TestAddNewCountry()
+        {
+            var c1 = new ClsCountry() { CountryName = "Egypt" };
+            if (c1.Save())
+                Console.WriteLine("saved successfully");
+            else
+                Console.WriteLine("doesn't save");
         }
 
         private static void TestFindCountry(int ID)

@@ -1,4 +1,5 @@
 ﻿using Country.DataAccessLayer;
+using System;
 
 namespace Country.BusinessLayer
 {
@@ -32,5 +33,20 @@ namespace Country.BusinessLayer
             return (ClsCountryDataAccessLayer.FindByID(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
         }
 
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    return (_AddCountry()) ? true : false;
+            }
+            return false;
+        }
+
+        private bool _AddCountry()
+        {
+            return ClsCountryDataAccessLayer.AddCountry(new ClsCountryDataAccessLayer.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+        }
     }
 }
+
