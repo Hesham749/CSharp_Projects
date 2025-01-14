@@ -126,7 +126,6 @@ namespace Contacts.DataAccessLayer
             }
             catch (Exception ex)
             {
-                return false;
             }
             finally { conn.Close(); }
             return rowAffected > 0;
@@ -148,7 +147,6 @@ namespace Contacts.DataAccessLayer
             }
             catch (Exception ex)
             {
-                return false;
             }
             finally { conn.Close(); }
             return rowAffected > 0;
