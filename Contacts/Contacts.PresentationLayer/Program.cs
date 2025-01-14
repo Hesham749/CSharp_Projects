@@ -1,5 +1,6 @@
 ﻿using Contacts.BusinessLayer;
 using System;
+using System.Data;
 namespace Contacts.PresentationLayer
 {
     internal class Program
@@ -10,8 +11,18 @@ namespace Contacts.PresentationLayer
             //TestFindContact(2);
             //TestAddNewContact();
             //TestUpdateContact(14);
-            TestDeleteContact(14);
-            //Console.ReadKey();
+            //TestDeleteContact(14);
+            TestListContacts();
+            Console.ReadKey();
+        }
+
+        private static void TestListContacts()
+        {
+            DataTable dt = ClsContact.GetAllContacts();
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine($"{row[0]}, {row["firstName"]}, {row["lastName"]}");
+            }
         }
 
         private static void TestDeleteContact(int ID)

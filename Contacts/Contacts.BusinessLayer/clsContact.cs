@@ -1,5 +1,6 @@
 ﻿using Contacts.DataAccessLayer;
 using System;
+using System.Data;
 namespace Contacts.BusinessLayer
 {
     public class ClsContact
@@ -86,6 +87,11 @@ namespace Contacts.BusinessLayer
         {
             return ClsContactsDataAccess.DeleteContact(ID);
 
+        }
+
+        public static DataTable GetAllContacts()
+        {
+            return ClsContactsDataAccess.GetALLContacts();
         }
     }
 }
