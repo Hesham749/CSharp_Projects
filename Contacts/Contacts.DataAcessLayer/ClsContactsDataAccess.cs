@@ -126,7 +126,6 @@ namespace Contacts.DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 return false;
             }
             finally { conn.Close(); }
