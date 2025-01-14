@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Contacts.DataAccessLayer;
 namespace Contacts.BusinessLayer
 {
-    public class clsContact
+    public class ClsContact
     {
 
         public int ID { get; set; }
@@ -23,11 +23,11 @@ namespace Contacts.BusinessLayer
 
 
 
-        public clsContact()
+        public ClsContact()
         {
         }
 
-        public clsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
+        public ClsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
         {
             ID = iD;
             FirstName = firstName;
@@ -40,13 +40,13 @@ namespace Contacts.BusinessLayer
             ImagePath = imagePath;
         }
 
-        public static clsContact Find(int ID)
+        public static ClsContact Find(int ID)
         {
             ClsContactsDataAccess.stContactData contactData = new ClsContactsDataAccess.stContactData();
             contactData.ID = ID;
             if (ClsContactsDataAccess.FindContactData(ref contactData))
             {
-                return new clsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
+                return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
             }
             else
                 return null;

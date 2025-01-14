@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Contacts.BusinessLayer;
+﻿using Contacts.BusinessLayer;
+using System;
 namespace Contacts.PresentationLayer
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+
             TestFindContact(2);
         }
 
         public static void TestFindContact(int ID)
         {
-            clsContact contact = clsContact.Find(ID);
-           
+            ClsContact contact = ClsContact.Find(ID);
+
             if (contact != null)
             {
                 Console.WriteLine($"{contact.FirstName} {contact.LastName}");
