@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-
-using System.Collections;
-using System.Runtime.Remoting.Messaging;
-namespace Contacts.DataAcessLayer
+namespace Contacts.DataAccessLayer
 {
-    public class clsContactsDataAcess
+    public class ClsContactsDataAccess
     {
         public struct stContactData
         {

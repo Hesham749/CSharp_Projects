@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Contacts.DataAcessLayer;
+using Contacts.DataAccessLayer;
 namespace Contacts.BusinessLayer
 {
     public class clsContact
@@ -42,9 +42,9 @@ namespace Contacts.BusinessLayer
 
         public static clsContact Find(int ID)
         {
-            clsContactsDataAcess.stContactData contactData = new clsContactsDataAcess.stContactData();
+            ClsContactsDataAccess.stContactData contactData = new ClsContactsDataAccess.stContactData();
             contactData.ID = ID;
-            if (clsContactsDataAcess.FindContactData(ref contactData))
+            if (ClsContactsDataAccess.FindContactData(ref contactData))
             {
                 return new clsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
             }
