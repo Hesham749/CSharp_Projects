@@ -9,6 +9,7 @@ namespace Contacts.PresentationLayer
 
             //TestFindContact(2);
             TestAddNewContact();
+            Console.ReadKey();
         }
 
         private static void TestAddNewContact()
@@ -24,6 +25,10 @@ namespace Contacts.PresentationLayer
                 Email = "@mail.com",
                 DateOfBirth = new DateTime(1994, 07, 20)
             };
+            if (contact1.Save())
+                Console.WriteLine("saved successfully");
+            else
+                Console.WriteLine("doesn't save");
 
         }
 

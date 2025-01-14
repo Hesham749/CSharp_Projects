@@ -71,14 +71,20 @@ namespace Contacts.DataAccessLayer
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
             cmd.Parameters.AddWithValue("@countryId", countryID);
-            cmd.Parameters.AddWithValue("@imagePath", ((imagePath != "") ? imagePath : null));
-
+            if (string.IsNullOrEmpty(imagePath))
+                cmd.Parameters.AddWithValue("@imagePath", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@imagePath", imagePath);
             try
             {
                 conn.Open();
                 object result = cmd.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int insertedId))
                     contactId = (insertedId > 0) ? insertedId : -1;
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
             }
             finally
             {
