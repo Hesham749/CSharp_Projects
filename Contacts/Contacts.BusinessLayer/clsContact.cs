@@ -8,8 +8,7 @@ namespace Contacts.BusinessLayer
         public enum enMode
         {
             Update = 1,
-            AddNew,
-            Delete
+            AddNew
         }
 
         public int ID { get; private set; }

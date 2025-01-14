@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B461F33E-7C0A-41F0-BDB8-9B17B1D585B0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Contacts.PresentationLayer</RootNamespace>
-    <AssemblyName>Contacts.PresentationLayer</AssemblyName>
+    <ProjectGuid>{418E3DA8-AF33-495A-B692-46CED2698CB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CountryDaatAcessLayer</RootNamespace>
+    <AssemblyName>CountryDaatAcessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,21 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ClsConnectionSettings.cs" />
+    <Compile Include="ClsCountryDataAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Contacts.BusinessLayer\Contacts.BusinessLayer.csproj">
-      <Project>{26c4e32a-a101-45b6-92b7-601ade3768b0}</Project>
-      <Name>Contacts.BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Country.BusinesssLayer\Country.BusinessLayer.csproj">
-      <Project>{813b9f4d-78f3-41cc-a9dc-31143d1d4d46}</Project>
-      <Name>Country.BusinessLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

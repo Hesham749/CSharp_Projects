@@ -36,10 +36,15 @@ namespace Contacts.PresentationLayer
 
         private static void TestDeleteContact(int ID)
         {
-            if (ClsContact.DeleteContact(ID))
-                Console.WriteLine("contact Deleted successfully");
+            if (ClsContact.IsContactExist(ID))
+            {
+                if (ClsContact.DeleteContact(ID))
+                    Console.WriteLine("contact Deleted successfully");
+                else
+                    Console.WriteLine("Failed to delete  contact.");
+            }
             else
-                Console.WriteLine("Failed to delete  contact.");
+                Console.WriteLine("Contact not found");
         }
 
         private static void TestAddNewContact()
