@@ -12,8 +12,17 @@ namespace Contacts.PresentationLayer
             //TestAddNewContact();
             //TestUpdateContact(14);
             //TestDeleteContact(14);
-            TestListContacts();
+            //TestListContacts();
+            TestExist(1);
+            TestExist(10);
             Console.ReadKey();
+        }
+
+        private static void TestExist(int ID)
+        {
+            if (ClsContact.IsContactExist(ID))
+                Console.WriteLine("user exist");
+            else Console.WriteLine("user not exist");
         }
 
         private static void TestListContacts()

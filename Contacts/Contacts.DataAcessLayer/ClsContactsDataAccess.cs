@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 namespace Contacts.DataAccessLayer
 {
     public class ClsContactsDataAccess
@@ -169,6 +170,24 @@ namespace Contacts.DataAccessLayer
             catch { }
             finally { conn.Close(); }
             return dt;
+        }
+
+        public static bool IsContactExist(int ID)
+        {
+            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            var query = @"select found = 1 from contacts where contactID = @ID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            bool found = false;
+            try
+            {
+                conn.Open();
+                if (cmd.ExecuteReader().HasRows)
+                    found = true;
+            }
+            catch { }
+            finally { conn.Close(); }
+            return found;
         }
     }
 }
