@@ -39,8 +39,15 @@ namespace Country.BusinessLayer
             {
                 case enMode.AddNew:
                     return (_AddCountry()) ? true : false;
+                case enMode.Update:
+                    return (_UpdateCountry()) ? true : false;
             }
             return false;
+        }
+
+        private bool _UpdateCountry()
+        {
+            return ClsCountryDataAccessLayer.UpdateCountry(new ClsCountryDataAccessLayer.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
         }
 
         private bool _AddCountry()

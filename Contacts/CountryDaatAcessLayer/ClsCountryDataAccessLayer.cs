@@ -56,5 +56,23 @@ namespace Country.DataAccessLayer
             finally { conn.Close(); }
             return CData.CountryID != -1;
         }
+
+        public static bool UpdateCountry(stCountryData cData)
+        {
+            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var query = @"update Countries set countryName = @Name where countryID = @ID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Name", cData.CountryName);
+            cmd.Parameters.AddWithValue("@ID", cData.CountryID);
+            int RowAffected = 0;
+            try
+            {
+                conn.Open();
+                RowAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception x) { }
+            finally { conn.Close(); }
+            return RowAffected > 0;
+        }
     }
 }

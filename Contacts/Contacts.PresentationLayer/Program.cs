@@ -18,8 +18,27 @@ namespace Contacts.PresentationLayer
             //TestExist(1);
             //TestExist(10);
             //TestFindCountry(1);
-            TestAddNewCountry();
+            //TestAddNewCountry();
+            TestUpdateCountry(6);
             Console.ReadKey();
+        }
+
+        private static void TestUpdateCountry(int ID)
+        {
+            var c1 = ClsCountry.FindByID(ID);
+
+            if (c1 != null)
+            {
+                c1.CountryName = "Swede";
+                if (c1.Save())
+                    Console.WriteLine("Country updated successfully");
+                else
+                    Console.WriteLine("Country didn't update");
+            }
+            else
+            {
+                Console.WriteLine($"Country with {ID} not found");
+            };
         }
 
         private static void TestAddNewCountry()
