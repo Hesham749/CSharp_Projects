@@ -66,20 +66,26 @@ namespace Contacts.BusinessLayer
                     Mode = enMode.Update;
                     return (_AddNewContact()) ? true : false;
                 case enMode.Update:
-                    return (_UpdateContact())?true: false;
+                    return (_UpdateContact()) ? true : false;
             }
             return false;
         }
 
         private bool _UpdateContact()
         {
-            return ClsContactsDataAccess.UpdateContact(ID,FirstName,LastName,Email, CountryID,Address,DateOfBirth,ImagePath,Phone);
+            return ClsContactsDataAccess.UpdateContact(ID, FirstName, LastName, Email, CountryID, Address, DateOfBirth, ImagePath, Phone);
         }
 
         private bool _AddNewContact()
         {
             ID = ClsContactsDataAccess.AddNewContact(FirstName, LastName, Email, Phone, Address, DateOfBirth, CountryID, ImagePath);
             return ID != -1;
+        }
+
+        public static bool DeleteContact(int ID)
+        {
+            return ClsContactsDataAccess.DeleteContact(ID);
+
         }
     }
 }

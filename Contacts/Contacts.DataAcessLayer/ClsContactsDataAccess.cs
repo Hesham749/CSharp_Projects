@@ -131,5 +131,27 @@ namespace Contacts.DataAccessLayer
             finally { conn.Close(); }
             return rowAffected > 0;
         }
+
+        public static bool DeleteContact(int ID)
+        {
+            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            var query = @" delete contacts 
+                            where contactID = @ID";
+            int rowAffected = 0;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                conn.Open();
+                rowAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally { conn.Close(); }
+            return rowAffected > 0;
+        }
     }
 }

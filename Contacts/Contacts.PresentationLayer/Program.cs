@@ -9,8 +9,17 @@ namespace Contacts.PresentationLayer
 
             //TestFindContact(2);
             //TestAddNewContact();
-            TestUpdateContact(14);
+            //TestUpdateContact(14);
+            TestDeleteContact(14);
             //Console.ReadKey();
+        }
+
+        private static void TestDeleteContact(int ID)
+        {
+            if (ClsContact.DeleteContact(ID))
+                Console.WriteLine("contact Deleted successfully");
+            else
+                Console.WriteLine("Failed to delete  contact.");
         }
 
         private static void TestAddNewContact()
