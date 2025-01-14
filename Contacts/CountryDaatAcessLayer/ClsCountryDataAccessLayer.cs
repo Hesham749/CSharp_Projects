@@ -110,5 +110,10 @@ namespace Country.DataAccessLayer
             finally { conn.Close(); }
             return dt;
         }
+
+        public static bool IsCountryExist(int iD)
+        {
+            var 
+        }
     }
 }

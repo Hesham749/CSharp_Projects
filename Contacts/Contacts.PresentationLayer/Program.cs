@@ -22,8 +22,16 @@ namespace Contacts.PresentationLayer
             //TestAddNewCountry();
             //TestUpdateCountry(6);
             //TestDeleteCountry(6);
-            TestListCountry();
+            //TestListCountry();
+            TestCountryExist(10);
             Console.ReadKey();
+        }
+
+        private static void TestCountryExist(int ID)
+        {
+            if (ClsCountry.IsCountryExist(ID))
+                Console.WriteLine("Country exist");
+            else Console.WriteLine("Country not exist");
         }
 
         private static void TestListCountry()
@@ -50,7 +58,7 @@ namespace Contacts.PresentationLayer
 
         private static void TestUpdateCountry(int ID)
         {
-            var c1 = ClsCountry.FindByID(ID);
+            var c1 = ClsCountry.Find(ID);
 
             if (c1 != null)
             {
@@ -77,7 +85,7 @@ namespace Contacts.PresentationLayer
 
         private static void TestFindCountry(int ID)
         {
-            ClsCountry c1 = ClsCountry.FindByID(ID);
+            ClsCountry c1 = ClsCountry.Find(ID);
             if (c1 != null)
             {
                 Console.WriteLine($"{c1.CountryID}, {c1.CountryName}");

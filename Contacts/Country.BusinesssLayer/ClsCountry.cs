@@ -28,7 +28,7 @@ namespace Country.BusinessLayer
             Mode = enMode.Update;
         }
 
-        public static ClsCountry FindByID(int ID)
+        public static ClsCountry Find(int ID)
         {
             var countryData = new ClsCountryDataAccessLayer.stCountryData();
             return (ClsCountryDataAccessLayer.FindByID(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
@@ -64,6 +64,11 @@ namespace Country.BusinessLayer
         public static DataTable GetAllCountry()
         {
             return ClsCountryDataAccessLayer.GetAllCountry();
+        }
+
+        public static bool IsCountryExist(int ID)
+        {
+            return ClsCountryDataAccessLayer.IsCountryExist(ID);
         }
     }
 }
