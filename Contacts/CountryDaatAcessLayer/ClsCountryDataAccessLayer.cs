@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 namespace Country.DataAccessLayer
 {
     public class ClsCountryDataAccessLayer
@@ -73,6 +74,41 @@ namespace Country.DataAccessLayer
             catch (Exception x) { }
             finally { conn.Close(); }
             return RowAffected > 0;
+        }
+
+        public static bool DeleteCountry(int ID)
+        {
+            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var query = @"delete Countries where countryID = @ID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            int RowAffected = 0;
+            try
+            {
+                conn.Open();
+                RowAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception x) { }
+            finally { conn.Close(); }
+            return RowAffected > 0;
+        }
+
+        public static DataTable GetAllCountry()
+        {
+            DataTable dt = new DataTable();
+            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var query = @"select * from countries";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                    dt.Load(reader);
+            }
+            catch (Exception x) { }
+            finally { conn.Close(); }
+            return dt;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Country.DataAccessLayer;
 using System;
+using System.Data;
 
 namespace Country.BusinessLayer
 {
@@ -53,6 +54,16 @@ namespace Country.BusinessLayer
         private bool _AddCountry()
         {
             return ClsCountryDataAccessLayer.AddCountry(new ClsCountryDataAccessLayer.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+        }
+
+        public static bool DeleteCountry(int ID)
+        {
+            return ClsCountryDataAccessLayer.DeleteCountry(ID);
+        }
+
+        public static DataTable GetAllCountry()
+        {
+            return ClsCountryDataAccessLayer.GetAllCountry();
         }
     }
 }

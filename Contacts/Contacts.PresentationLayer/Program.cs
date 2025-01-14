@@ -17,10 +17,35 @@ namespace Contacts.PresentationLayer
             //TestListContacts();
             //TestExist(1);
             //TestExist(10);
+
             //TestFindCountry(1);
             //TestAddNewCountry();
-            TestUpdateCountry(6);
+            //TestUpdateCountry(6);
+            //TestDeleteCountry(6);
+            TestListCountry();
             Console.ReadKey();
+        }
+
+        private static void TestListCountry()
+        {
+            DataTable dt = ClsCountry.GetAllCountry();
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine($"{row[0]}, {row[1]}");
+            }
+        }
+
+        private static void TestDeleteCountry(int ID)
+        {
+            //if (ClsContact.IsContactExist(ID))
+            //{
+            if (ClsCountry.DeleteCountry(ID))
+                Console.WriteLine("Country Deleted successfully");
+            else
+                Console.WriteLine("Failed to delete  Country.");
+            //}
+            //else
+            //    Console.WriteLine("Country not found");
         }
 
         private static void TestUpdateCountry(int ID)
