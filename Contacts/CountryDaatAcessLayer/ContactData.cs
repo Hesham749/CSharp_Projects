@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Country.DataAccessLayer;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.Remoting.Messaging;
 namespace Contacts.DataAccessLayer
 {
-    public class ClsContactsDataAccess
+    public class ClsContactData
     {
         public struct stContactData
         {
@@ -21,7 +22,7 @@ namespace Contacts.DataAccessLayer
         public static bool GetContactInfoByID(ref stContactData contactData)
         {
             bool found = false;
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             string query = @"select * from Contacts 
         where ContactID = @contacts ";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -61,7 +62,7 @@ namespace Contacts.DataAccessLayer
         public static int AddNewContact(string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
         {
             int contactId = -1;
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"insert into contacts (firstName, lastName, email,Phone,Address,DateOfBirth,CountryId,imagePath)
                         values(@firstName,@lastName,@email,@phone,@address,@dateOfBirth,@countryId,@imagePath);
                          select scope_identity();";
@@ -97,7 +98,7 @@ namespace Contacts.DataAccessLayer
 
         public static bool UpdateContact(int iD, string firstName, string lastName, string email, int countryID, string address, DateTime dateOfBirth, string imagePath, string phone)
         {
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             string query = @"update contacts 
                             set firstName = @firstName ,
                             lastName = @lastName,
@@ -135,7 +136,7 @@ namespace Contacts.DataAccessLayer
 
         public static bool DeleteContact(int ID)
         {
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @" delete contacts 
                             where contactID = @ID";
             int rowAffected = 0;
@@ -157,7 +158,7 @@ namespace Contacts.DataAccessLayer
         public static DataTable GetALLContacts()
         {
             DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"select * from contacts";
             SqlCommand cmd = new SqlCommand(query, conn);
             try
@@ -174,7 +175,7 @@ namespace Contacts.DataAccessLayer
 
         public static bool IsContactExist(int ID)
         {
-            SqlConnection conn = new SqlConnection(clsConnectionSettings.connString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"select found = 1 from contacts where contactID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID", ID);

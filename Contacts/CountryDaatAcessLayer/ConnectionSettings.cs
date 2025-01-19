@@ -4,6 +4,6 @@ namespace Country.DataAccessLayer
 {
     internal static class ClsConnectionSettings
     {
-        static public string ConnString = @"server = . ; dataBase = contactsDb; user id = sa ; password = 123456";
+        static public string connString = @"server = . ; dataBase = contactsDb; user id = sa ; password = 123456";
     }
 }

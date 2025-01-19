@@ -46,11 +46,11 @@ namespace Contacts.BusinessLayer
 
         public static ClsContact Find(int ID)
         {
-            ClsContactsDataAccess.stContactData contactData = new ClsContactsDataAccess.stContactData
+            ClsContactData.stContactData contactData = new ClsContactData.stContactData
             {
                 ID = ID
             };
-            if (ClsContactsDataAccess.GetContactInfoByID(ref contactData))
+            if (ClsContactData.GetContactInfoByID(ref contactData))
             {
                 return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
             }
@@ -73,29 +73,29 @@ namespace Contacts.BusinessLayer
 
         private bool _UpdateContact()
         {
-            return ClsContactsDataAccess.UpdateContact(ID, FirstName, LastName, Email, CountryID, Address, DateOfBirth, ImagePath, Phone);
+            return ClsContactData.UpdateContact(ID, FirstName, LastName, Email, CountryID, Address, DateOfBirth, ImagePath, Phone);
         }
 
         private bool _AddNewContact()
         {
-            ID = ClsContactsDataAccess.AddNewContact(FirstName, LastName, Email, Phone, Address, DateOfBirth, CountryID, ImagePath);
+            ID = ClsContactData.AddNewContact(FirstName, LastName, Email, Phone, Address, DateOfBirth, CountryID, ImagePath);
             return ID != -1;
         }
 
         public static bool DeleteContact(int ID)
         {
-            return ClsContactsDataAccess.DeleteContact(ID);
+            return ClsContactData.DeleteContact(ID);
 
         }
 
         public static DataTable GetAllContacts()
         {
-            return ClsContactsDataAccess.GetALLContacts();
+            return ClsContactData.GetALLContacts();
         }
 
         public static bool IsContactExist(int ID)
         {
-            return ClsContactsDataAccess.IsContactExist(ID);
+            return ClsContactData.IsContactExist(ID);
         }
     }
 }

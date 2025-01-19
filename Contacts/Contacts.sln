@@ -5,17 +5,9 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "Contacts.PresentationLayer\PresentationLayer.csproj", "{B461F33E-7C0A-41F0-BDB8-9B17B1D585B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.BusinessLayer", "Contacts.BusinessLayer\Contacts.BusinessLayer.csproj", "{26C4E32A-A101-45B6-92B7-601ADE3768B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "CountryDaatAcessLayer\DataAccessLayer.csproj", "{418E3DA8-AF33-495A-B692-46CED2698CB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.DataAcessLayer", "Contacts.DataAcessLayer\Contacts.DataAcessLayer.csproj", "{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Country.DataAccessLayer", "CountryDaatAcessLayer\Country.DataAccessLayer.csproj", "{418E3DA8-AF33-495A-B692-46CED2698CB0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Country.BusinessLayer", "Country.BusinesssLayer\Country.BusinessLayer.csproj", "{813B9F4D-78F3-41CC-A9DC-31143D1D4D46}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{1C270E41-BCBE-4F1F-9168-D9475E13B507}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Countries", "Countries", "{DD4F21E4-460E-4122-B5AB-9D2676136F16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "Country.BusinesssLayer\BusinessLayer.csproj", "{813B9F4D-78F3-41CC-A9DC-31143D1D4D46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +19,6 @@ Global
 		{B461F33E-7C0A-41F0-BDB8-9B17B1D585B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B461F33E-7C0A-41F0-BDB8-9B17B1D585B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B461F33E-7C0A-41F0-BDB8-9B17B1D585B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26C4E32A-A101-45B6-92B7-601ADE3768B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26C4E32A-A101-45B6-92B7-601ADE3768B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26C4E32A-A101-45B6-92B7-601ADE3768B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26C4E32A-A101-45B6-92B7-601ADE3768B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{418E3DA8-AF33-495A-B692-46CED2698CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{418E3DA8-AF33-495A-B692-46CED2698CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{418E3DA8-AF33-495A-B692-46CED2698CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,11 +30,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{26C4E32A-A101-45B6-92B7-601ADE3768B0} = {1C270E41-BCBE-4F1F-9168-D9475E13B507}
-		{33A72C40-4263-4C9B-A772-FA0DEEDDB9F8} = {1C270E41-BCBE-4F1F-9168-D9475E13B507}
-		{418E3DA8-AF33-495A-B692-46CED2698CB0} = {DD4F21E4-460E-4122-B5AB-9D2676136F16}
-		{813B9F4D-78F3-41CC-A9DC-31143D1D4D46} = {DD4F21E4-460E-4122-B5AB-9D2676136F16}
 	EndGlobalSection
 EndGlobal

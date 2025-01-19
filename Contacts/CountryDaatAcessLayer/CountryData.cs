@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Xml.Linq;
 namespace Country.DataAccessLayer
 {
-    public class ClsCountryDataAccessLayer
+    public class CountryData
     {
         public struct stCountryData
         {
@@ -12,11 +12,11 @@ namespace Country.DataAccessLayer
             public string CountryName { get; set; }
         }
 
-        public static bool FindByID(int ID, ref stCountryData countryData)
+        public static bool Find(int ID, ref stCountryData countryData)
         {
             bool found = false;
             countryData = new stCountryData();
-            SqlConnection conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"select * from countries where CountryID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID", ID);
@@ -40,9 +40,37 @@ namespace Country.DataAccessLayer
             return found;
         }
 
+        public static bool Find(string Name, ref stCountryData countryData)
+        {
+            bool found = false;
+            countryData = new stCountryData();
+            SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
+            var query = @"select * from countries where CountryName = @Name";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Name", Name);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    found = true;
+                    reader.Read();
+                    countryData.CountryID = reader.GetInt32(0);
+                    countryData.CountryName = Name;
+                    reader.Close();
+                }
+            }
+            catch
+            {
+            }
+            finally { conn.Close(); }
+            return found;
+        }
+
         public static bool AddCountry(stCountryData CData)
         {
-            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"insert into countries(CountryName)
                           values(@countryName);
                         select  scope_identity();";
@@ -60,7 +88,7 @@ namespace Country.DataAccessLayer
 
         public static bool UpdateCountry(stCountryData cData)
         {
-            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"update Countries set countryName = @Name where countryID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Name", cData.CountryName);
@@ -78,7 +106,7 @@ namespace Country.DataAccessLayer
 
         public static bool DeleteCountry(int ID)
         {
-            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"delete Countries where countryID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID", ID);
@@ -96,7 +124,7 @@ namespace Country.DataAccessLayer
         public static DataTable GetAllCountry()
         {
             DataTable dt = new DataTable();
-            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"select * from countries";
             SqlCommand cmd = new SqlCommand(query, conn);
             try
@@ -113,10 +141,27 @@ namespace Country.DataAccessLayer
 
         public static bool IsCountryExist(int ID)
         {
-            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"select found = 1 from countries where countryID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                conn.Open();
+                if (cmd.ExecuteReader().HasRows)
+                    return true;
+            }
+            catch (Exception x) { return false; }
+            finally { conn.Close(); }
+            return false;
+        }
+
+        public static bool IsCountryExist(string Name)
+        {
+            var conn = new SqlConnection(ClsConnectionSettings.connString);
+            var query = @"select found = 1 from countries where countryName = @Name";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Name", Name);
             try
             {
                 conn.Open();

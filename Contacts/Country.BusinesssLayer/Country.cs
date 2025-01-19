@@ -30,8 +30,13 @@ namespace Country.BusinessLayer
 
         public static ClsCountry Find(int ID)
         {
-            var countryData = new ClsCountryDataAccessLayer.stCountryData();
-            return (ClsCountryDataAccessLayer.FindByID(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
+            var countryData = new CountryData.stCountryData();
+            return (CountryData.Find(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
+        }
+        public static ClsCountry Find(string Name)
+        {
+            var countryData = new CountryData.stCountryData();
+            return (CountryData.Find(Name, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
         }
 
         public bool Save()
@@ -48,27 +53,32 @@ namespace Country.BusinessLayer
 
         private bool _UpdateCountry()
         {
-            return ClsCountryDataAccessLayer.UpdateCountry(new ClsCountryDataAccessLayer.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+            return CountryData.UpdateCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
         }
 
         private bool _AddCountry()
         {
-            return ClsCountryDataAccessLayer.AddCountry(new ClsCountryDataAccessLayer.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+            return CountryData.AddCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
         }
 
         public static bool DeleteCountry(int ID)
         {
-            return ClsCountryDataAccessLayer.DeleteCountry(ID);
+            return CountryData.DeleteCountry(ID);
         }
 
         public static DataTable GetAllCountry()
         {
-            return ClsCountryDataAccessLayer.GetAllCountry();
+            return CountryData.GetAllCountry();
         }
 
         public static bool IsCountryExist(int ID)
         {
-            return ClsCountryDataAccessLayer.IsCountryExist(ID);
+            return CountryData.IsCountryExist(ID);
+        }
+
+        public static bool IsCountryExist(string Name)
+        {
+            return CountryData.IsCountryExist(Name);
         }
     }
 }

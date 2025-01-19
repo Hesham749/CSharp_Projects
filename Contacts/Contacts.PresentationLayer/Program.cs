@@ -19,24 +19,46 @@ namespace Contacts.PresentationLayer
             //TestExist(10);
 
             //TestFindCountry(1);
+            //Test2FindCountry("Germany");
             //TestAddNewCountry();
             //TestUpdateCountry(6);
             //TestDeleteCountry(6);
-            //TestListCountry();
-            TestCountryExist(1);
+            //TestListCountry();1
+            //TestCountryExist(10);
+            //TestCountryExist(1);
+            Test2CountryExist("egypt");
+            Test2CountryExist("Germany");
+
             Console.ReadKey();
+        }
+
+        private static void Test2CountryExist(string Name)
+        {
+            if (Country.BusinessLayer.ClsCountry.IsCountryExist(Name))
+                Console.WriteLine("Country exist");
+            else Console.WriteLine("Country not exist");
+        }
+
+        private static void Test2FindCountry(string Name)
+        {
+            Country.BusinessLayer.ClsCountry c1 = Country.BusinessLayer.ClsCountry.Find(Name);
+            if (c1 != null)
+            {
+                Console.WriteLine($"{c1.CountryID}, {c1.CountryName}");
+            }
+            else Console.WriteLine("Country not found");
         }
 
         private static void TestCountryExist(int ID)
         {
-            if (ClsCountry.IsCountryExist(ID))
+            if (Country.BusinessLayer.ClsCountry.IsCountryExist(ID))
                 Console.WriteLine("Country exist");
             else Console.WriteLine("Country not exist");
         }
 
         private static void TestListCountry()
         {
-            DataTable dt = ClsCountry.GetAllCountry();
+            DataTable dt = Country.BusinessLayer.ClsCountry.GetAllCountry();
             foreach (DataRow row in dt.Rows)
             {
                 Console.WriteLine($"{row[0]}, {row[1]}");
@@ -47,7 +69,7 @@ namespace Contacts.PresentationLayer
         {
             //if (ClsContact.IsContactExist(ID))
             //{
-            if (ClsCountry.DeleteCountry(ID))
+            if (Country.BusinessLayer.ClsCountry.DeleteCountry(ID))
                 Console.WriteLine("Country Deleted successfully");
             else
                 Console.WriteLine("Failed to delete  Country.");
@@ -58,7 +80,7 @@ namespace Contacts.PresentationLayer
 
         private static void TestUpdateCountry(int ID)
         {
-            var c1 = ClsCountry.Find(ID);
+            var c1 = Country.BusinessLayer.ClsCountry.Find(ID);
 
             if (c1 != null)
             {
@@ -76,7 +98,7 @@ namespace Contacts.PresentationLayer
 
         private static void TestAddNewCountry()
         {
-            var c1 = new ClsCountry() { CountryName = "Egypt" };
+            var c1 = new Country.BusinessLayer.ClsCountry() { CountryName = "Egypt" };
             if (c1.Save())
                 Console.WriteLine("saved successfully");
             else
@@ -85,7 +107,7 @@ namespace Contacts.PresentationLayer
 
         private static void TestFindCountry(int ID)
         {
-            ClsCountry c1 = ClsCountry.Find(ID);
+            Country.BusinessLayer.ClsCountry c1 = Country.BusinessLayer.ClsCountry.Find(ID);
             if (c1 != null)
             {
                 Console.WriteLine($"{c1.CountryID}, {c1.CountryName}");
