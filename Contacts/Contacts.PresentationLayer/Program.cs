@@ -23,7 +23,7 @@ namespace Contacts.PresentationLayer
             //TestUpdateCountry(6);
             //TestDeleteCountry(6);
             //TestListCountry();
-            TestCountryExist(10);
+            TestCountryExist(1);
             Console.ReadKey();
         }
 

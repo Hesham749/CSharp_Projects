@@ -111,9 +111,21 @@ namespace Country.DataAccessLayer
             return dt;
         }
 
-        public static bool IsCountryExist(int iD)
+        public static bool IsCountryExist(int ID)
         {
-            var 
+            var conn = new SqlConnection(ClsConnectionSettings.ConnString);
+            var query = @"select found = 1 from countries where countryID = @ID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                conn.Open();
+                if (cmd.ExecuteReader().HasRows)
+                    return true;
+            }
+            catch (Exception x) { return false; }
+            finally { conn.Close(); }
+            return false;
         }
     }
 }
