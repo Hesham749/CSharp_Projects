@@ -18,15 +18,16 @@ namespace Contacts.DataAccessLayer
             public DateTime DateOfBirth { get; set; }
             public string ImagePath { get; set; }
             public int CountryID { get; set; }
+            public string PhoneCode { get; set; }
         }
         public static bool GetContactInfoByID(ref stContactData contactData)
         {
             bool found = false;
             SqlConnection conn = new SqlConnection(ClsConnectionSettings.connString);
             string query = @"select * from Contacts 
-        where ContactID = @contacts ";
+             where ContactID = @ID ";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@contacts", contactData.ID);
+            cmd.Parameters.AddWithValue("@ID", contactData.ID);
             try
             {
                 conn.Open();
@@ -42,7 +43,8 @@ namespace Contacts.DataAccessLayer
                     contactData.Address = reader.GetString(5).ToString();
                     contactData.DateOfBirth = reader.GetDateTime(6);
                     contactData.CountryID = reader.GetInt32(7);
-                    contactData.ImagePath = reader.GetValue(8).ToString();
+                    contactData.ImagePath = (reader.IsDBNull(8)) ? null : reader.GetString(8);
+                    contactData.PhoneCode = (reader.IsDBNull(9)) ? null : reader.GetString(9);
 
                 }
                 reader.Close();

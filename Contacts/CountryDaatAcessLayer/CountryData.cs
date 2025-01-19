@@ -10,6 +10,7 @@ namespace Country.DataAccessLayer
         {
             public int CountryID { get; set; }
             public string CountryName { get; set; }
+            public string Code { get; set; }
         }
 
         public static bool Find(int ID, ref stCountryData countryData)
@@ -30,11 +31,13 @@ namespace Country.DataAccessLayer
                     reader.Read();
                     countryData.CountryID = ID;
                     countryData.CountryName = reader.GetString(1);
+                    countryData.Code = reader.IsDBNull(2) ? null : reader.GetString(2);
                     reader.Close();
                 }
             }
             catch
             {
+                found = false;
             }
             finally { conn.Close(); }
             return found;
@@ -58,6 +61,7 @@ namespace Country.DataAccessLayer
                     reader.Read();
                     countryData.CountryID = reader.GetInt32(0);
                     countryData.CountryName = Name;
+                    countryData.Code = reader.IsDBNull(2) ? null : reader.GetString(2);
                     reader.Close();
                 }
             }
@@ -72,10 +76,11 @@ namespace Country.DataAccessLayer
         {
             var conn = new SqlConnection(ClsConnectionSettings.connString);
             var query = @"insert into countries(CountryName)
-                          values(@countryName);
+                          values(@countryName,@Code);
                         select  scope_identity();";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@countryName", CData.CountryName);
+            cmd.Parameters.AddWithValue("@Code", CData.Code);
             try
             {
                 conn.Open();
@@ -89,10 +94,11 @@ namespace Country.DataAccessLayer
         public static bool UpdateCountry(stCountryData cData)
         {
             var conn = new SqlConnection(ClsConnectionSettings.connString);
-            var query = @"update Countries set countryName = @Name where countryID = @ID";
+            var query = @"update Countries set countryName = @Name , Code = @Code   where countryID = @ID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Name", cData.CountryName);
             cmd.Parameters.AddWithValue("@ID", cData.CountryID);
+            cmd.Parameters.AddWithValue("@Code", cData.Code);
             int RowAffected = 0;
             try
             {

@@ -13,6 +13,8 @@ namespace Country.BusinessLayer
         }
         public int CountryID { get; private set; }
         public string CountryName { get; set; } = string.Empty;
+        public string Code { get; set; } = string.Empty;
+
         enMode Mode { get; set; }
 
         public ClsCountry()
@@ -21,22 +23,23 @@ namespace Country.BusinessLayer
             Mode = enMode.AddNew;
         }
 
-        ClsCountry(int countryID, string countryName)
+        ClsCountry(int countryID, string countryName, string code)
         {
             CountryID = countryID;
             CountryName = countryName;
+            Code = code;
             Mode = enMode.Update;
         }
 
         public static ClsCountry Find(int ID)
         {
             var countryData = new CountryData.stCountryData();
-            return (CountryData.Find(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
+            return (CountryData.Find(ID, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName, countryData.Code) : null;
         }
         public static ClsCountry Find(string Name)
         {
             var countryData = new CountryData.stCountryData();
-            return (CountryData.Find(Name, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName) : null;
+            return (CountryData.Find(Name, ref countryData)) ? new ClsCountry(countryData.CountryID, countryData.CountryName, countryData.Code) : null;
         }
 
         public bool Save()
@@ -53,12 +56,12 @@ namespace Country.BusinessLayer
 
         private bool _UpdateCountry()
         {
-            return CountryData.UpdateCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+            return CountryData.UpdateCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName, Code = this.Code });
         }
 
         private bool _AddCountry()
         {
-            return CountryData.AddCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName });
+            return CountryData.AddCountry(new CountryData.stCountryData() { CountryID = this.CountryID, CountryName = this.CountryName, Code = this.Code });
         }
 
         public static bool DeleteCountry(int ID)

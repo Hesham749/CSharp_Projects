@@ -10,7 +10,7 @@ namespace Contacts.PresentationLayer
         static void Main(string[] args)
         {
 
-            //TestFindContact(2);
+            TestFindContact(5);
             //TestAddNewContact();
             //TestUpdateContact(14);
             //TestDeleteContact(14);
@@ -18,7 +18,7 @@ namespace Contacts.PresentationLayer
             //TestExist(1);
             //TestExist(10);
 
-            //TestFindCountry(1);
+            TestFindCountry(1);
             //Test2FindCountry("Germany");
             //TestAddNewCountry();
             //TestUpdateCountry(6);
@@ -26,8 +26,8 @@ namespace Contacts.PresentationLayer
             //TestListCountry();1
             //TestCountryExist(10);
             //TestCountryExist(1);
-            Test2CountryExist("egypt");
-            Test2CountryExist("Germany");
+            //Test2CountryExist("egypt");
+            //Test2CountryExist("Germany");
 
             Console.ReadKey();
         }
@@ -110,7 +110,7 @@ namespace Contacts.PresentationLayer
             Country.BusinessLayer.ClsCountry c1 = Country.BusinessLayer.ClsCountry.Find(ID);
             if (c1 != null)
             {
-                Console.WriteLine($"{c1.CountryID}, {c1.CountryName}");
+                Console.WriteLine($"{c1.CountryID}, {c1.CountryName} , {c1.Code}");
             }
             else Console.WriteLine("Country not found");
         }
@@ -177,6 +177,7 @@ namespace Contacts.PresentationLayer
                 Console.WriteLine(contact.DateOfBirth);
                 Console.WriteLine(contact.CountryID);
                 Console.WriteLine(contact.ImagePath);
+                Console.WriteLine(contact.PhoneCode);
             }
             else
             {

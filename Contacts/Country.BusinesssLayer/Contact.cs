@@ -21,6 +21,7 @@ namespace Contacts.BusinessLayer
         public int CountryID { get; set; }
         public string ImagePath { get; set; }
         public enMode Mode { get; private set; }
+        public string PhoneCode { get; set; }
 
 
 
@@ -30,7 +31,7 @@ namespace Contacts.BusinessLayer
             Mode = enMode.AddNew;
         }
 
-        private ClsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath)
+        private ClsContact(int iD, string firstName, string lastName, string email, string phone, string address, DateTime dateOfBirth, int countryID, string imagePath, string phoneCode)
         {
             ID = iD;
             FirstName = firstName;
@@ -41,6 +42,7 @@ namespace Contacts.BusinessLayer
             DateOfBirth = dateOfBirth;
             CountryID = countryID;
             ImagePath = imagePath;
+            PhoneCode = phoneCode;
             Mode = enMode.Update;
         }
 
@@ -52,7 +54,7 @@ namespace Contacts.BusinessLayer
             };
             if (ClsContactData.GetContactInfoByID(ref contactData))
             {
-                return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath);
+                return new ClsContact(contactData.ID, contactData.FirstName, contactData.LastName, contactData.Email, contactData.Phone, contactData.Address, contactData.DateOfBirth, contactData.CountryID, contactData.ImagePath,contactData.PhoneCode);
             }
             else
                 return null;
